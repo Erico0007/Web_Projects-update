@@ -64,6 +64,44 @@
       <h2>Your Cart</h2>
       <!-- Cart items will be dynamically inserted here -->
       <p class="center-text">Review your selected items before checkout.</p>
+      <!-- Cart Items -->
+      <div class="cart-items">
+        <div class="cart-item">
+          <img src="../Images/Product1.jpg" alt="Lotion Reversa" width="100" />
+          <h3>Lotion Reversa</h3>
+          <p class="price">19.99 CAD</p>
+          <button class="remove-item">Remove</button>
+        </div>
+
+        <div class="cart-item">
+          <img src="../Images/Product2.jpg" alt="Acne Toner" width="100" />
+          <h3>Acne Toner</h3>
+          <p class="price">20.99 CAD</p>
+          <button class="remove-item">Remove</button>
+        </div>
+
+        <div class="cart-item">
+          <img src="../Images/Product3.jpg" alt="Listerine" width="100" />
+          <h3>Listerine</h3>
+          <p class="price">22.99 CAD</p>
+          <button class="remove-item">Remove</button>
+        </div>
+      </div>
+      <!-- Cart Summary -->
+      <h2>Cart Summary</h2>
+      <p class="center-text">
+        Total items in your cart:
+        <span
+          id="item
+-count"
+          >3</span
+        >
+      </p>
+
+      <p class="center-text">
+        Total price: <span id="total-price">63.97 CAD</span>
+      </p>
+
       <div id="cart-items">
         <!-- Cart items will be populated here by JavaScript -->
       </div>
