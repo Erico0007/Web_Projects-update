@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document for Lab-1 
+Developed by Eric Ekra
+Script Date: June 4 2025 */
+
+/* Base body styling */
+body {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif; /* Prioritized font stack */
+  background-color: #8c92ac; /* Soft purple background */
+  line-height: 0.5; /* Very tight spacing – consider increasing for readability */
+  margin: 0;
+  padding: 10px;
+  gap: 20px; /* Has no effect unless body is a flex/grid container */
+}
+
+/* Font for main headings and optional class */
+h1,
+h2,
+h3 .lobster-text {
+  font-family: "Lobster", cursive;
+}
+
+/* Navbar font */
+.navbar {
+  font-family: "Lobster", cursive;
+}
+
+/* Header section styling */
+header {
+  background: #35424a; /* Deep navy-gray */
+  color: white; /* White text on dark background */
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Apply Lobster font across all elements in the filter form */
+#filter-form,
+#filter-form label,
+#filter-form select,
+#filter-form input,
+#filter-form button,
+#filter-form h2 {
+  font-family: "Lobster", cursive;
+}
+
+/* Navbar unordered list layout */
+nav ul {
+  list-style: none; /* Remove default bullets */
+  display: flex; /* Arrange items in a row */
+  padding: 0;
+  justify-content: center; /* Center items horizontally */
+}
+
+/* Navbar list item spacing */
+nav ul li {
+  margin: 0 15px; /* Horizontal gap between nav items */
+}
+
+/* Navbar link styles */
+nav ul li a {
+  color: #ffffff; /* White link text */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect for nav links */
+nav ul li a:hover {
+  text-decoration: underline;
+  transform: scale(1.1); /* Slight grow on hover */
+  transition: all 0.3s ease-in-out; /* Smooth animation */
+}
+
+/* Highlight style for active nav link */
+nav ul li a.active {
+  font-weight: bold;
+  color: #f0f0f0; /* Slightly lighter white */
+}
+
+/* Product grid layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column grid */
+  grid-gap: 20px; /* Legacy gap (redundant below) */
+  margin: 20px auto; /* Center grid and add vertical spacing */
+  max-width: 800px; /* Limit container width */
+  padding: 20px;
+
+  gap: 1.5rem; /* Use this instead of grid-gap */
+  padding: 1rem; /* Overwrites 20px padding above */
+}
+
+/* Individual product card style */
+.product-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease; /* Animation on hover */
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Hover effect for product cards */
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Product images */
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Button styling in cards */
+.product-card button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Footer layout and color */
+footer {
+  background: #35424a; /* Matches header/nav color */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+}

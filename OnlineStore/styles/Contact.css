@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document for Lab-1 
+Developed by Eric Ekra
+Script Date: June 4 2025 */
+
+/* Apply a soft purple background and Lobster font site wide */
+/* Apply a soft purple background and Lobster font site wide */
+body {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif; /* Font stack with fallbacks */
+  background-color: #8c92ac; /* Soft purple background */
+  line-height: 0.5; /* Very tight spacing — recommend increasing for readability */
+  margin: 0;
+  padding: 10px;
+  gap: 20px; /* Note: only works if body is display: flex or grid */
+}
+
+/* Set Lobster font for Bootstrap navbar */
+.navbar {
+  font-family: "Lobster", cursive;
+}
+
+/* Headings styling */
+h1,
+h2,
+h3 {
+  color: grey; /* Muted heading color */
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+/* Header background and text color */
+header {
+  background: #35424a; /* Navy-gray header */
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Paragraph styling */
+p {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: #000000; /* Black text for contrast */
+  margin: 20px auto;
+  max-width: 800px; /* Limit line length for readability */
+}
+
+/*  .contact-form for a class or #contact-form for an ID */
+.contact-form {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* .label depending on HTML */
+.label {
+  font: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif; /* Not a valid font shorthand — use font-family */
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/*  .email-input */
+email-input {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+footer {
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  background: #35424a;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+}
