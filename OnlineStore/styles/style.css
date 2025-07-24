@@ -7,7 +7,7 @@ Script Date: June 4 2025 */
 body {
   font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif; /* Priority font stack */
   background-color: #8c92ac; /* Soft purple background */
-  line-height: 0.5; /* Line spacing (might be a bit tight for body text) */
+  line-height: 1.5; /* Line spacing (might be a bit tight for body text) */
   margin: 0;
   padding: 10px;
   gap: 20px; /* Note: gap only works inside flex/grid containers */
