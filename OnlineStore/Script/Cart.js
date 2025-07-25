@@ -1,4 +1,11 @@
 // Cart.js
+// This script handles the shopping cart functionality for the online store
+// including adding items, updating totals, and checkout process.
+// It also manages saving and loading the cart from localStorage.
+// Ensure the DOM is fully loaded before running the script
+// to avoid null references on elements.
+// This script assumes the HTML structure matches the IDs used in the script.
+// It also includes a checkout confirmation process and order history management.
 document.addEventListener("DOMContentLoaded", function () {
   let Cart = [];
   let TotalItems = 0;
@@ -61,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCartTotals();
     updateCartDisplay();
-    showConfirmation(`${name} added to cart!`);
+    alert(`${name} added to cart!`);
   };
 
   function updateCartTotals() {
@@ -78,26 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
       totalPriceElement.textContent = totalPrice.toFixed(2) + " CAD";
   }
 
-  function showConfirmation(message) {
-    if (confirmationMessage) {
-      confirmationMessage.textContent = message;
-      setTimeout(() => {
-        confirmationMessage.textContent = "";
-      }, 3000);
-    }
-  }
-
   function clearCart() {
     Cart = [];
     updateCartTotals();
     updateCartDisplay();
     localStorage.removeItem("cart");
-    showConfirmation("Cart cleared successfully!");
+    alert("Cart cleared successfully!");
   }
 
   function saveCart() {
     localStorage.setItem("cart", JSON.stringify(Cart));
-    showConfirmation("Cart saved successfully!");
+    alert("Cart saved successfully!");
   }
 
   function loadCart() {
@@ -106,9 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
       Cart = JSON.parse(savedCart);
       updateCartTotals();
       updateCartDisplay();
-      showConfirmation("Cart loaded successfully!");
+      alert("Cart loaded successfully!");
     } else {
-      showConfirmation("No saved cart found.");
+      alert("No saved cart found.");
     }
   }
 
@@ -131,22 +129,21 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
 
       // Show confirmation with order details
-      showConfirmation(
-        `Order #${orderHistory.length} placed successfully!<br>
-            ${TotalItems} items totaling $${totalPrice.toFixed(2)}<br>
-            Thank you for your purchase!`
+      alert(
+        `Order #${orderHistory.length} placed successfully!\n` +
+          `${TotalItems} items totaling $${totalPrice.toFixed(2)}\n` +
+          `Thank you for your purchase!`
       );
+
       // Generate order confirmation HTML
 
       // In a real application, you would redirect to order confirmation page
       // window.location.href = `order-confirmation.html?orderId=${orderHistory.length}`;
     } else {
-      showConfirmation(
-        "Your cart is empty! Please add items before checkout.",
-        "text-danger"
-      );
+      alert("Your cart is empty! Please add items before checkout.");
     }
   }
+
   function generateConfirmationNumber() {
     return (
       "SYS-" +
@@ -157,26 +154,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleCheckout() {
-    if (cart.length === 0) {
+    if (Cart.length === 0) {
       confirmationMessage.textContent = "Your cart is empty.";
       return;
     }
 
     const confirmationNumber = generateConfirmationNumber();
-    window.alert(
+    alert(
       `Thank you for your purchase! Your confirmation number is: ${confirmationNumber}`
     );
 
-    clearCart();
     updateCartDisplay();
   }
 
   // Function to continue shopping
   function continueShopping() {
     // In a real app, this would redirect to products page
-    showConfirmation("Continuing shopping...");
+    alert("Continuing shopping...");
+    setTimeout(() => {
+      window.location.href = "products.html";
+    }, 3000);
   }
-});
+}); // <-- closes the first DOMContentLoaded event listener
+
 // order-history.js
 document.addEventListener("DOMContentLoaded", function () {
   const orderHistory = JSON.parse(localStorage.getItem("orderHistory") || "[]");
