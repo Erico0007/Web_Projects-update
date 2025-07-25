@@ -17,6 +17,7 @@
 
   <body>
     <!-- Header -->
+    <script src="../Script/Cart.js"></script>
     <header>
       <h1>Shopping Cart</h1>
       <nav
@@ -156,10 +157,10 @@
                 />
                 <div class="card-body">
                   <p class="card-title">Product 5</p>
-                  <p class="card-text">22.99 CAD</p>
+                  <p class="card-text">1099.99 CAD</p>
                   <button
                     class="btn btn-primary"
-                    onclick="addToCart('Product 5', 22.99)"
+                    onclick="addToCart('Product 5', 1099.99)"
                   >
                     Add to Cart
                   </button>
@@ -198,6 +199,12 @@
 
           <button id="checkout-button" class="btn btn-success">Checkout</button>
 
+          <!-- Cart Items List -->
+          <div id="order-confirmation" class="mt-3 p-3 bg-light rounded d-none">
+            <h4>Order Confirmation</h4>
+            <div id="order-details"></div>
+          </div>
+
           <!-- Clear Cart and Continue Shopping Buttons -->
 
           <button id="clear-cart-button" class="btn btn-danger">
@@ -208,6 +215,7 @@
           </button>
           <!-- Save Cart Button -->
           <button id="save-cart-button" class="btn btn-info">Save Cart</button>
+          <!-- Load Cart Button -->
           <button id="load-cart-button" class="btn btn-warning">
             Load Cart
           </button>
@@ -220,7 +228,6 @@
         <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
       </footer>
     </main>
-    <script src="../Script/Cart.js"></script>
   </body>
 
   <!-- Place this just before </body> -->
