@@ -9,13 +9,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lobster"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
 
   <body>
+    <!-- Header -->
     <header>
       <h1>Shopping Cart</h1>
       <nav
@@ -60,66 +58,99 @@
       </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
       <h2>Your Cart</h2>
-      <!-- Cart items will be dynamically inserted here -->
       <p class="center-text">Review your selected items before checkout.</p>
+
       <!-- Cart Items -->
-      <div class="cart-items">
-        <div class="cart-item">
-          <img src="../Images/Product1.jpg" alt="Lotion Reversa" width="100" />
-          <h3>Lotion Reversa</h3>
-          <p class="price">19.99 CAD</p>
-          <button class="remove-item">Remove</button>
+     <main class="container mt-4">
+    <section id="product-list">
+      <h2>Products</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product1.jpg" class="card-img-top" alt="Product 1">
+            <div class="card-body">
+              <h5 class="card-title">Lotion Reversa</h5>
+              <p class="card-text">19.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Lotion Reversa', 19.99)">Add to Cart</button>
+            </div>
+          </div>
         </div>
-
-        <div class="cart-item">
-          <img src="../Images/Product2.jpg" alt="Acne Toner" width="100" />
-          <h3>Acne Toner</h3>
-          <p class="price">20.99 CAD</p>
-          <button class="remove-item">Remove</button>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product2.jpg" class="card-img-top" alt="Product 2">
+            <div class="card-body">
+              <h5 class="card-title">Acne Toner</h5>
+              <p class="card-text">20.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Acne Toner', 20.99)">Add to Cart</button>
+            </div>
+          </div>
         </div>
-
-        <div class="cart-item">
-          <img src="../Images/Product3.jpg" alt="Listerine" width="100" />
-          <h3>Listerine</h3>
-          <p class="price">22.99 CAD</p>
-          <button class="remove-item">Remove</button>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product3.jpg" class="card-img-top" alt="Product 3">
+            <div class="card-body">
+              <h5 class="card-title">Product 3</h5>
+              <p class="card-text">22.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Product 3', 22.99)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product4.jpg" class="card-img-top" alt="Product 4">
+            <div class="card-body">
+              <h5 class="card-title">Product 4</h5>
+              <p class="card-text">20.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Product 4', 20.99)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product5.jpg" class="card-img-top" alt="Product 5">
+            <div class="card-body">
+              <h5 class="card-title">Product 5</h5>
+              <p class="card-text">22.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Product 5', 22.99)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <img src="../Images/Product6.jpg" class="card-img-top" alt="Product 6">
+            <div class="card-body">
+              <h5 class="card-title">Product 6</h5>
+              <p class="card-text">15.99 CAD</p>
+              <button class="btn btn-primary" onclick="addToCart('Product 6', 15.99)">Add to Cart</button>
+            </div>
+          </div>
         </div>
       </div>
+
       <!-- Cart Summary -->
-      <h2>Cart Summary</h2>
-      <p class="center-text">
-        Total items in your cart:
-        <span
-          id="item
--count"
-          >3</span
-        >
+      <h3>Cart Summary</h3>
+      
+      <p>Total items: <span id="item-count">0</span></p>
+      
+      <p>Total price: <span id="total-price">0.00 CAD</span></p>
       </p>
-
-      <p class="center-text">
-        Total price: <span id="total-price">63.97 CAD</span>
-      </p>
-
-      <div id="cart-items">
-        <!-- Cart items will be populated here by JavaScript -->
-      </div>
-
-      <!-- Total price will be displayed here -->
-      <div id="cart-items"></div>
-
-      <!-- Total Price -->
-      <div id="total-price"></div>
-
       <!-- Checkout Button -->
-      <button id="checkout-button">Checkout</button>
+     <button id="checkout-button" class="btn btn-success">Checkout</button>
+      <div id="confirmation-message" class="mt-3 text-success"></div>
+    </section>
+     
+      <!-- Confirmation Message -->
+      <div id="confirmation-message" class="center-text"></div>
     </main>
-
+    <!-- Footer -->
     <footer>
       <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
     </footer>
 
-    <script src="../js/cart.js"></script>
+    <!-- External Script -->
+    <script src="../Script/Cart.js"></script>
   </body>
 </html>
