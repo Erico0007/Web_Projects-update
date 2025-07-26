@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       // In a real application, you would redirect to order confirmation page
-      window.location.href = `order-confirmation.html?orderId=${orderHistory.length}`;
+      window.location.href = "../Pages/OrderHistory.html";
     } else {
       alert("Your cart is empty! Please add items before checkout.");
     }
