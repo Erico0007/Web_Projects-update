@@ -26,7 +26,7 @@ function checkout() {
     localStorage.setItem("Cart", JSON.stringify([]));
 
     // Redirect
-    window.location.href = "OrderHistory.html"; // Adjust path as needed
+    window.location.href = "../OrderHistory.html"; // Adjust path as needed
   } else {
     alert("Your cart is empty.");
   }

@@ -136,20 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Save order to order history
       const orderHistory = JSON.parse(
-        localStorage.getItem("orderHistory") || "[]"
+        localStorage.getItem("OrderHistory") || "[]"
       );
       orderHistory.push(orderSummary);
-      localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+      localStorage.setItem("OrderHistory", JSON.stringify(orderHistory));
 
       // Show confirmation with order details
       alert(
-        `Order #${orderHistory.length} placed successfully!\n` +
+        `Order #${OrderHistory.length} placed successfully!\n` +
           `${TotalItems} items totaling $${totalPrice.toFixed(2)}\n` +
           `Thank you for your purchase!`
       );
 
-      // In a real application, you would redirect to order confirmation page
-      window.location.href = "../Pages/OrderHistory.html";
+      // redirect to the order-history page
+      window.location.href = "OrderHistory.html";
     } else {
       alert("Your cart is empty! Please add items before checkout.");
     }
@@ -192,10 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // order-history.js
 document.addEventListener("DOMContentLoaded", function () {
-  const orderHistory = JSON.parse(localStorage.getItem("orderHistory") || "[]");
-  const historyContainer = document.getElementById("orderHistory");
+  const OrderHistory = JSON.parse(localStorage.getItem("OrderHistory") || "[]");
+  const historyContainer = document.getElementById("OrderHistory");
 
-  if (orderHistory.length === 0) {
+  if (OrderHistory.length === 0) {
     historyContainer.innerHTML = "<p>No past orders found.</p>";
     return;
   }
