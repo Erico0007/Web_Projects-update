@@ -1,33 +1,23 @@
 "use strict";
 
-function checkout() {
-  const Cart = JSON.parse(localStorage.getItem("Cart") || "[]");
+document.addEventListener("DOMContentLoaded", function () {
+  const orderHistory = JSON.parse(localStorage.getItem("OrderHistory") || "[]");
+  const historyContainer = document.getElementById("OrderHistory");
 
-  if (Cart.length > 0) {
-    const totalPrice = Cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0
-    );
-
-    const orderSummary = {
-      confirmationNumber: generateConfirmationNumber(),
-      items: Cart,
-      totalPrice: totalPrice,
-      date: new Date().toISOString(),
-    };
-
-    const orderHistory = JSON.parse(
-      localStorage.getItem("OrderHistory") || "[]"
-    );
-    orderHistory.push(orderSummary);
-    localStorage.setItem("OrderHistory", JSON.stringify(orderHistory));
-
-    // Clear cart if needed
-    localStorage.setItem("Cart", JSON.stringify([]));
-
-    // Redirect
-    window.location.href = "../OrderHistory.html"; // Adjust path as needed
-  } else {
-    alert("Your cart is empty.");
+  if (orderHistory.length === 0) {
+    const row = document.createElement("tr");
+    row.innerHTML = "<td colspan='4'>No past orders found.</td>";
+    tbody.appendChild(row);
+    return;
   }
-}
+  orderHistory.forEach((order, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${order.confirmationNumber}</td>
+            <td>${order.items.length}</td>
+            <td>$${order.totalPrice.toFixed(2)}</td>
+        `;
+    historyContainer.appendChild(row);
+  });
+});
