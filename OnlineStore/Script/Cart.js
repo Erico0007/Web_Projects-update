@@ -6,6 +6,8 @@
 // to avoid null references on elements.
 // This script assumes the HTML structure matches the IDs used in the script.
 // It also includes a checkout confirmation process and order history management.
+
+// Make sure to include this script in your HTML file after the DOM elements are defined.
 document.addEventListener("DOMContentLoaded", function () {
   let Cart = [];
   let TotalItems = 0;
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var continueShoppingButton = document.getElementById(
     "continue-shopping-button"
   );
+  // Ensure these buttons exist in your HTML
   var saveCartButton = document.getElementById("save-cart-button");
   var loadCartButton = document.getElementById("load-cart-button");
   var confirmationMessage = document.getElementById("confirmation-message");
@@ -27,6 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", handleCheckout);
 
   // Initialize cart from localStorage if available
+  // Check if cart exists in localStorage
+  if (!itemCountElement || !totalPriceElement) {
+    console.error("Cart display elements not found in the DOM.");
+    return;
+  }
+  // Load saved cart from localStorage
+  // This will only run if the cart is not empty
   const savedCart = localStorage.getItem("cart");
   if (savedCart) {
     Cart = JSON.parse(savedCart);
@@ -70,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartDisplay();
     alert(`${name} added to cart!`);
   };
-
+  // Function to update cart totals and display.
   function updateCartTotals() {
     TotalItems = Cart.reduce((sum, item) => sum + item.quantity, 0);
     totalPrice = Cart.reduce(
@@ -85,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       totalPriceElement.textContent = totalPrice.toFixed(2) + " CAD";
   }
 
+  // Function to clear the cart
   function clearCart() {
     Cart = [];
     updateCartTotals();
@@ -92,12 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.removeItem("cart");
     alert("Cart cleared successfully!");
   }
-
+  // Function to save the cart to localStorage
+  // This function serializes the cart and saves it to localStorage
   function saveCart() {
     localStorage.setItem("cart", JSON.stringify(Cart));
     alert("Cart saved successfully!");
   }
-
+  // Function to load the cart from localStorage
   function loadCart() {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -109,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("No saved cart found.");
     }
   }
-
+  // Function to handle checkout process
+  // This function checks if the cart has items, creates an order summary,
   function checkout() {
     if (TotalItems > 0) {
       // Create order summary
@@ -135,15 +148,14 @@ document.addEventListener("DOMContentLoaded", function () {
           `Thank you for your purchase!`
       );
 
-      // Generate order confirmation HTML
-
       // In a real application, you would redirect to order confirmation page
       // window.location.href = `order-confirmation.html?orderId=${orderHistory.length}`;
     } else {
       alert("Your cart is empty! Please add items before checkout.");
     }
   }
-
+  // Function to generate a confirmation number
+  // This function generates a unique confirmation number for the order.
   function generateConfirmationNumber() {
     return (
       "SYS-" +
@@ -152,7 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .padStart(6, "0")
     );
   }
-
+  // Function to handle checkout confirmation
+  // This function checks if the cart is empty and shows a confirmation message.
   function handleCheckout() {
     if (Cart.length === 0) {
       confirmationMessage.textContent = "Your cart is empty.";
@@ -168,14 +181,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Function to continue shopping
+  // In a real app, this would redirect to products page
   function continueShopping() {
-    // In a real app, this would redirect to products page
     alert("Continuing shopping...");
     setTimeout(() => {
       window.location.href = "products.html";
     }, 3000);
   }
-}); // <-- closes the first DOMContentLoaded event listener
+});
 
 // order-history.js
 document.addEventListener("DOMContentLoaded", function () {
