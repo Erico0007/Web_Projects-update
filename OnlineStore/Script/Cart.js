@@ -143,13 +143,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Show confirmation with order details
       alert(
-        `Order #${OrderHistory.length} placed successfully!\n` +
+        `Order #${orderHistory.length} placed successfully!\n` +
           `${TotalItems} items totaling $${totalPrice.toFixed(2)}\n` +
           `Thank you for your purchase!`
       );
 
       // redirect to the order-history page
-      window.location.href = "OrderHistory.html";
+      window.location.href = "../Pages/OrderHistory.html";
     } else {
       alert("Your cart is empty! Please add items before checkout.");
     }
