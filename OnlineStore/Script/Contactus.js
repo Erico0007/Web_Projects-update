@@ -19,12 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
 
       // Show confirmation message
-      confirmationMessage.textContent =
-        "Thank you for contacting us! We will get back to you soon.";
-      contactForm.appendChild(confirmationMessage); // Add the message to the form
-      contactForm.reset(); // Reset the form fields
+      showConfirmation();
     } else {
-      alert("Please fill in all fields before submitting.");
+      // Show error message
+      alert("Please fill in all fields.");
+      contactForm.appendChild(confirmationMessage); // Append the message to the form
+    }
+
+    function showConfirmation() {
+      alert("Thank you for contacting us! We will get back to you soon.");
+      setTimeout(() => {
+        confirmationMessage.textContent = ""; // Clear message after 20 seconds
+      }, 20000);
+      // Optionally, you can display a message in the DOM instead of using alert
+      confirmationMessage.textContent =
+        "Your message has been sent successfully!";
+      confirmationMessage.style.color = "blue";
+      contactForm.appendChild(confirmationMessage);
+      setTimeout(() => {
+        confirmationMessage.textContent = ""; // Clear message after 20 seconds
+      }, 20000);
     }
   });
 });

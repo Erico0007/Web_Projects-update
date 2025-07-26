@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // order-history.js
 document.addEventListener("DOMContentLoaded", function () {
   const orderHistory = JSON.parse(localStorage.getItem("orderHistory") || "[]");
-  const historyContainer = document.getElementById("order-history");
+  const historyContainer = document.getElementById("orderHistory");
 
   if (orderHistory.length === 0) {
     historyContainer.innerHTML = "<p>No past orders found.</p>";
