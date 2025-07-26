@@ -74,58 +74,64 @@
         <label for="category">Category:</label>
         <select id="category" name="category">
           <option value="all">All</option>
-          <option value="Beauty&Personal Care">Beauty & Personal Care</option>
-          <option value="Books">Books</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Home&Kitchen">Home & Kitchen</option>
+          <option value="beauty">Beauty & Personal Care</option>
+          <option value="books">Books</option>
+          <option value="electronics">Electronics</option>
+          <option value="home">Home & Kitchen</option>
         </select>
+        <label for="price-range">Price Range:</label>
+        <input
+          type="range"
+          id="price-range"
+          min="0"
+          max="2000"
+          value="2000"
+          step="10"
+        />
+        <span id="price-value">$0 - $2000</span>
+        <button type="button" id="apply-filters">Apply Filters</button>
+        <button type="reset" id="reset-filters">Reset Filters</button>
       </form>
     </section>
-    <label for="price-range">Price Range:</label>
-    <input
-      type="range"
-      id="price-range"
-      name="price-range"
-      min="0"
-      max="100"
-      step="1"
-    />
 
-    <button type="submit">Apply Filters</button>
     <!-- This section is for filtering products based on category and price range -->
     <main>
       <div class="product-grid">
-        <article class="product-card">
+        <article class="product-card" data-category="beauty" data-price="19.99">
           <img src="../Images/product1.jpg" alt="Lotion Reversa" width="500" />
           <h3>Product 1</h3>
           <p>$19.99</p>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-category="beauty" data-price="24.99">
           <img src="../Images/product2.jpg" alt="Acne Toner" width="500" />
           <h3>Product 2</h3>
           <p>$24.99</p>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-category="beauty" data-price="19.99">
           <img src="../Images/product3.jpg" alt="Listerine" width="500" />
           <h3>Product 3</h3>
           <p>$19.99</p>
         </article>
 
-        <article class="product-card">
+        <article
+          class="product-card"
+          data-category="electronics"
+          data-price="199.99"
+        >
           <img src="../Images/product4.jpg" alt="Android Watch" width="500" />
           <h3>Product 4</h3>
           <p>$199.99</p>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-category="home" data-price="1999.99">
           <img src="../Images/product5.jpg" alt="Samsung Stove" width="500" />
           <h3>Product 5</h3>
           <p>$1999.99</p>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-category="books" data-price="49.99">
           <img
             src="../Images/product6.jpg"
             alt=" Death Detective"
@@ -139,6 +145,7 @@
     <footer>
       <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
     </footer>
-    <script src="../js/product.js"></script>
+    <script src="../Script/Products.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
