@@ -94,6 +94,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (totalPriceElement)
       totalPriceElement.textContent = totalPrice.toFixed(2) + " CAD";
   }
+  function updateTaxAndGrandTotalandshipping() {
+    const shippingCost = 5.0; // Flat shipping cost
+    document.getElementById("shipping-cost").textContent =
+      shippingCost.toFixed(2) + " CAD";
+    const taxRate = 0.15; // 15% tax
+    const taxAmount = totalPrice * taxRate;
+    const grandTotal = totalPrice + taxAmount + shippingCost;
+    document.getElementById("shipping-cost").textContent =
+      shippingCost.toFixed(2) + " CAD";
+
+    document.getElementById("tax-amount").textContent =
+      taxAmount.toFixed(2) + " CAD";
+    document.getElementById("grand-total").textContent =
+      grandTotal.toFixed(2) + " CAD";
+  }
+  // Call this function to update tax and grand total whenever the cart is updated
+  updateTaxAndGrandTotal();
 
   // Function to clear the cart
   function clearCart() {
@@ -125,26 +142,40 @@ document.addEventListener("DOMContentLoaded", function () {
   // This function checks if the cart has items, creates an order summary,
   function checkout() {
     if (TotalItems > 0) {
-      // Create order summary
+      const subtotal = Cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+      const taxRate = 0.15;
+      const shippingCost = 5.0;
+      const taxAmount = subtotal * taxRate;
+      const grandTotal = subtotal + taxAmount + shippingCost;
+
       const orderSummary = {
         date: new Date().toISOString(),
         items: [...Cart], // Copy of cart items
         totalItems: TotalItems,
-        totalPrice: totalPrice,
+        subtotal: subtotal.toFixed(2),
+        taxAmount: taxAmount.toFixed(2),
+        shippingCost: shippingCost.toFixed(2),
+        grandTotal: grandTotal.toFixed(2),
         status: "completed",
+        confirmationNumber: generateConfirmationNumber(),
       };
 
-      // Save order to order history
-      const orderHistory = JSON.parse(
+      // Save order to order history (fixed version)
+      const existingOrders = JSON.parse(
         localStorage.getItem("OrderHistory") || "[]"
       );
-      orderHistory.push(orderSummary);
-      localStorage.setItem("OrderHistory", JSON.stringify(orderHistory));
+      existingOrders.push(orderSummary);
+      localStorage.setItem("OrderHistory", JSON.stringify(existingOrders));
 
-      // Show confirmation with order details
       alert(
-        `Order #${orderHistory.length} placed successfully!\n` +
-          `${TotalItems} items totaling $${totalPrice.toFixed(2)}\n` +
+        `Order #${existingOrders.length} placed successfully!\n` +
+          `${TotalItems} items totaling $${grandTotal.toFixed(
+            2
+          )} (incl. tax & shipping)\n` +
+          `Confirmation #: ${orderSummary.confirmationNumber}\n` +
           `Thank you for your purchase!`
       );
 
@@ -154,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Your cart is empty! Please add items before checkout.");
     }
   }
+
   // Function to generate a confirmation number
   // This function generates a unique confirmation number for the order.
   function generateConfirmationNumber() {
@@ -199,4 +231,15 @@ document.addEventListener("DOMContentLoaded", function () {
     historyContainer.innerHTML = "<p>No past orders found.</p>";
     return;
   }
+});
+// Populate order history table
+OrderHistory.forEach((order, index) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${order.confirmationNumber}</td>
+            <td>${order.items.length}</td>
+            <td>$${order.totalPrice.toFixed(2)}</td>
+        `;
+  historyContainer.appendChild(row);
 });

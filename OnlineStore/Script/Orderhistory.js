@@ -1,23 +1,43 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", function () {
-  const orderHistory = JSON.parse(localStorage.getItem("OrderHistory") || "[]");
-  const historyContainer = document.getElementById("OrderHistory");
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the order history from localStorage
+    const orders = JSON.parse(localStorage.getItem("OrderHistory") || "[]");
+    const tableBody = document.getElementById("order-history-body"); // Changed ID
+    
+    if (!tableBody) {
+        console.error("Order history table body not found");
+        return;
+    }
 
-  if (orderHistory.length === 0) {
-    const row = document.createElement("tr");
-    row.innerHTML = "<td colspan='4'>No past orders found.</td>";
-    tbody.appendChild(row);
-    return;
-  }
-  orderHistory.forEach((order, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
+    // Clear any existing content
+    tableBody.innerHTML = '';
+
+    if (orders.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="6" class="text-center">No past orders found</td>
+            </tr>
+        `;
+        return;
+    }
+
+    // Populate the table
+    orders.forEach((order, index) => {
+        const row = document.createElement('tr');
+        
+        // Format order date
+        const orderDate = new Date(order.date);
+        const formattedDate = orderDate.toLocaleDateString() + ' ' + orderDate.toLocaleTimeString();
+        
+        row.innerHTML = `
             <td>${index + 1}</td>
             <td>${order.confirmationNumber}</td>
-            <td>${order.items.length}</td>
-            <td>$${order.totalPrice.toFixed(2)}</td>
+            <td>${formattedDate}</td>
+            <td>${order.totalItems}</td>
+            <td>$${order.subtotal}</td>
+            <td>$${order.grandTotal}</td>
         `;
-    historyContainer.appendChild(row);
-  });
+        tableBody.appendChild(row);
+    });
 });
