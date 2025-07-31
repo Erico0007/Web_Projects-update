@@ -12,6 +12,21 @@ body {
   padding: 10px;
   gap: 20px; /* Note: gap only works inside flex/grid containers */
 }
+/* language switcher */
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 
 /* Main heading style */
 h1,

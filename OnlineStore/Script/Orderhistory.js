@@ -41,3 +41,17 @@ document.addEventListener("DOMContentLoaded", function() {
         tableBody.appendChild(row);
     });
 });
+
+// clear localStorage after displaying order history after 50  order history
+if (localStorage.getItem("OrderHistory") && JSON.parse(localStorage.getItem("OrderHistory")).length >= 50) {
+    localStorage.removeItem("OrderHistory");
+
+    console.log("Order history cleared after reaching 50 orders.");
+    document.getElementById("order-history-body").innerHTML = `
+        <tr>
+            <td colspan="6" class="text-center">No past orders found</td>
+        </tr>
+    `;
+}
+
+
