@@ -259,30 +259,30 @@
                     <label for="payment-info" class="form-label">Payment Information</label>
                     <option value="" disabled selected>Select payment information</option>
                     <option value="credit-card-info">Credit Card Info</option>
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="Enter credit card info" />
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="Full Name" />
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="Card Number" />
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="Address" />
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="Expiry Date" />
-                    <input type="text" class="form-control" id="credit-card-info" placeholder="CVV" />
+                    <input type="text" class="form-control" id="credit-card-info-main" placeholder="Enter credit card info" />
+                    <input type="text" class="form-control" id="credit-card-fullname" placeholder="Full Name" />
+                    <input type="text" class="form-control" id="credit-card-number" placeholder="Card Number" />
+                    <input type="text" class="form-control" id="credit-card-address" placeholder="Address" />
+                    <input type="text" class="form-control" id="credit-card-expiry" placeholder="Expiry Date" />
+                    <input type="text" class="form-control" id="credit-card-cvv" placeholder="CVV" />
 
                     <option value="paypal-info">PayPal Info</option>
-                    <input type="text" class="form-control" id="paypal-info" placeholder="Enter PayPal info" />
-                    <input type="text" class="form-control" id="paypal-info" placeholder="Email" />
-                    <input type="text" class="form-control" id="paypal-info" placeholder="Password" />
-                    <input type="text" class="form-control" id="paypal-info" placeholder="Address" />
+                    <input type="text" class="form-control" id="paypal-info-main" placeholder="Enter PayPal info" />
+                    <input type="text" class="form-control" id="paypal-email" placeholder="Email" />
+                    <input type="text" class="form-control" id="paypal-password" placeholder="Password" />
+                    <input type="text" class="form-control" id="paypal-address" placeholder="Address" />
 
                     <option value="bank-transfer-info">Bank Transfer Info</option>
-                    <input type="text" class="form-control" id="bank-transfer-info" placeholder="Enter bank transfer info" />
-                    <input type="text" class="form-control" id="bank-transfer-info" placeholder="Bank Name" />
-                    <input type="text" class="form-control" id="bank-transfer-info" placeholder="Account Number" />
-                    <input type="text" class="form-control" id="bank-transfer-info" placeholder="Routing Number" />
+                    <input type="text" class="form-control" id="bank-transfer-info-main" placeholder="Enter bank transfer info" />
+                    <input type="text" class="form-control" id="bank-transfer-bank-name" placeholder="Bank Name" />
+                    <input type="text" class="form-control" id="bank-transfer-account-number" placeholder="Account Number" />
+                    <input type="text" class="form-control" id="bank-transfer-routing-number" placeholder="Routing Number" />
 
                     <option value="cryptocurrency-info">Cryptocurrency Info</option>
-                    <input type="text" class="form-control" id="cryptocurrency-info" placeholder="Enter cryptocurrency info" />
-                    <input type="text" class="form-control" id="cryptocurrency-info" placeholder="Wallet Address" />
-                    <input type="text" class="form-control" id="cryptocurrency-info" placeholder="Cryptocurrency Type" />
-                    <input type="text" class="form-control" id="cryptocurrency-info" placeholder="Amount" />
+                    <input type="text" class="form-control" id="cryptocurrency-info-main" placeholder="Enter cryptocurrency info" />
+                    <input type="text" class="form-control" id="cryptocurrency-wallet-address" placeholder="Wallet Address" />
+                    <input type="text" class="form-control" id="cryptocurrency-type" placeholder="Cryptocurrency Type" />
+                    <input type="text" class="form-control" id="cryptocurrency-amount" placeholder="Amount" />
 
                   </select>
                 </select>
@@ -292,7 +292,7 @@
 
           <!-- Checkout Button -->
 
-          <button id="checkout-button" class="btn btn-success">Place Order</button>
+          <button id="checkout-button" class="btn btn-success" type="submit">Place Order</button>
 
           <!-- Cart Items List -->
           <div id="order-confirmation" class="mt-3 p-3 bg-light rounded d-none">
@@ -302,16 +302,16 @@
 
           <!-- Clear Cart and Continue Shopping Buttons -->
 
-          <button id="clear-cart-button" class="btn btn-danger">
+          <button id="clear-cart-button" class="btn btn-danger" type="button">
             Clear Cart
           </button>
-          <button id="continue-shopping-button" class="btn btn-secondary">
+          <button id="continue-shopping-button" class="btn btn-secondary" type="button">
             Continue Shopping
           </button>
           <!-- Save Cart Button -->
-          <button id="save-cart-button" class="btn btn-info">Save Cart</button>
+          <button id="save-cart-button" class="btn btn-info" type="button">Save Cart</button>
           <!-- Load Cart Button -->
-          <button id="load-cart-button" class="btn btn-warning">
+          <button id="load-cart-button" class="btn btn-warning" type="button">
             Load Cart
           </button>
         </section>
