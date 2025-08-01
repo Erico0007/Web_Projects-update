@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const promoMessage = document.getElementById("promo-message");
   const checkoutForm = document.getElementById("checkout-form");
   const promoCodeInput = document.getElementById("promo-code");
-  const paymentInfoSelect = document.getElementById("payment-info");
+const paymentMethodSelect = document.getElementById("payment-method")
 
   // Load cart from localStorage with error handling
   try {
@@ -70,40 +70,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (paymentInfoSelect) {
-    paymentInfoSelect.addEventListener("change", function () {
-      const selectedValue = this.value; // Fixed variable name
-
-      // Hide all payment info sections
-      const paymentSections = [
-        "credit-card-info",
-        "paypal-info",
-        "bank-transfer-info",
-        "Crypto",
-        "other-info",
-      ];
-
-      paymentSections.forEach((id) => {
-        const element = document.getElementById(id);
-        if (element) element.style.display = "none";
-      });
-
-      // Show the selected payment info section
-      const selectedSection = document.getElementById(`${selectedValue}-info`);
-      if (selectedSection) {
-        selectedSection.style.display = "block";
-      }
-
-      // Special handling for 'other' option
-      if (selectedValue === "other") {
-        Array.from(paymentInfoSelect.options).forEach((option) => {
-          if (option.value !== selectedValue && option.value !== "") {
-            option.style.display = "none";
-          }
-        });
-      }
+  if (paymentMethodSelect) {
+  paymentMethodSelect.addEventListener("change", function() {
+    // Hide all payment info sections first
+    document.querySelectorAll('.payment-info').forEach(section => {
+      section.style.display = 'none';
     });
-  }
+    
+    // Show the selected payment method section
+    const selectedMethod = this.value;
+    if (selectedMethod) {
+      const selectedSection = document.getElementById(`${selectedMethod}-info`);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+      }
+    }
+  });
+}
 
   // Add item to cart
   window.addToCart = function (name, price) {
@@ -234,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Checkout - 
+  // Checkout -
   function checkout() {
     // Validate form inputs
     const name = document.getElementById("name")?.value.trim();

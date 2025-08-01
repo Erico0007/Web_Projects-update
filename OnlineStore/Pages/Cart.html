@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart | SYSTEMSTORES</title>
     <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/Cart.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lobster"
@@ -247,48 +248,39 @@
               </div>
               <div class="mb-3">
                 <label for="payment-method" class="form-label">Payment Method</label>
-                <select class="form-select" id="payment-method" required>
-                  <option value="" disabled selected>Select a payment method</option>
+                <select id="payment-method" class="form-select" required>
+                  <option value="">Select a payment method</option>
                   <option value="credit-card">Credit Card</option>
                   <option value="paypal">PayPal</option>
                   <option value="bank-transfer">Bank Transfer</option>
                   <option value="cryptocurrency">Cryptocurrency</option>
+
                    
-                   <div class="mb-3">
-                  <select class ="Payment-info" id="payment-info">
-                    <label for="payment-info" class="form-label">Payment Information</label>
-                    <option value="" disabled selected>Select payment information</option>
-                    <option value="credit-card-info">Credit Card Info</option>
-                    <input type="text" class="form-control" id="credit-card-info-main" placeholder="Enter credit card info" />
-                    <input type="text" class="form-control" id="credit-card-fullname" placeholder="Full Name" />
-                    <input type="text" class="form-control" id="credit-card-number" placeholder="Card Number" />
-                    <input type="text" class="form-control" id="credit-card-address" placeholder="Address" />
-                    <input type="text" class="form-control" id="credit-card-expiry" placeholder="Expiry Date" />
-                    <input type="text" class="form-control" id="credit-card-cvv" placeholder="CVV" />
+                  <!-- Payment info sections (initially hidden) -->
+              <div id="credit-card-info" class="payment-info" style="display: none;">
+  <!-- Credit card form fields -->
+              <input type="text" placeholder="Card Number">
+              <input type="text" placeholder="Expiration Date">
+                <input type="text" placeholder="CVV">
+                </div>
 
-                    <option value="paypal-info">PayPal Info</option>
-                    <input type="text" class="form-control" id="paypal-info-main" placeholder="Enter PayPal info" />
-                    <input type="text" class="form-control" id="paypal-email" placeholder="Email" />
-                    <input type="text" class="form-control" id="paypal-password" placeholder="Password" />
-                    <input type="text" class="form-control" id="paypal-address" placeholder="Address" />
+                <div id="paypal-info" class="payment-info">
+                </div>
 
-                    <option value="bank-transfer-info">Bank Transfer Info</option>
-                    <input type="text" class="form-control" id="bank-transfer-info-main" placeholder="Enter bank transfer info" />
-                    <input type="text" class="form-control" id="bank-transfer-bank-name" placeholder="Bank Name" />
-                    <input type="text" class="form-control" id="bank-transfer-account-number" placeholder="Account Number" />
-                    <input type="text" class="form-control" id="bank-transfer-routing-number" placeholder="Routing Number" />
+                 <div id="bank-transfer-info" class="payment-info">
+                 </div>
 
-                    <option value="cryptocurrency-info">Cryptocurrency Info</option>
-                    <input type="text" class="form-control" id="cryptocurrency-info-main" placeholder="Enter cryptocurrency info" />
-                    <input type="text" class="form-control" id="cryptocurrency-wallet-address" placeholder="Wallet Address" />
-                    <input type="text" class="form-control" id="cryptocurrency-type" placeholder="Cryptocurrency Type" />
-                    <input type="text" class="form-control" id="cryptocurrency-amount" placeholder="Amount" />
+                   <div id="crypto-info" class="payment-info">
+      
+                  </div>
+
+                  <div id="other-info" class="payment-info">
+                  <p>Please contact customer service for alternative payment methods</p>
+                 </div>
 
                   </select>
                 </select>
               </div>
-
-
 
           <!-- Checkout Button -->
 
