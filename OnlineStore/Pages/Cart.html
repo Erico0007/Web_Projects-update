@@ -256,27 +256,44 @@
                   <option value="cryptocurrency">Cryptocurrency</option>
 
                    
-                  <!-- Payment info sections (initially hidden) -->
-              <div id="credit-card-info" class="payment-info" style="display: none;">
-  <!-- Credit card form fields -->
-              <input type="text" placeholder="Card Number">
-              <input type="text" placeholder="Expiration Date">
-                <input type="text" placeholder="CVV">
-                </div>
+                 <!-- Payment info sections -->
+  <div id="credit-card-info" class="payment-info">
+    <div class="form-group">
+      <label for="card-number">Card Number</label>
+      <input type="text" id="card-number" placeholder="1234 5678 9012 3456" data-payment="card-number">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="expiry-date">Expiry Date</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" data-payment="expiry">
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="123" data-payment="cvv">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="card-name">Name on Card</label>
+      <input type="text" id="card-name" placeholder="John Doe" data-payment="card-name">
+    </div>
+  </div>
 
-                <div id="paypal-info" class="payment-info">
-                </div>
+  <div id="paypal-info" class="payment-info">
+    <div class="paypal-logo">
+      <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal">
+    </div>
+    <p>You'll be redirected to PayPal to complete your payment securely.</p>
+  </div>
 
-                 <div id="bank-transfer-info" class="payment-info">
-                 </div>
+  <div id="bank-transfer-info" class="payment-info">
+    <p><i class="icon-bank"></i> Bank transfer details will be provided after checkout.</p>
+    <p>Please use your order ID as the payment reference.</p>
+  </div>
 
-                   <div id="crypto-info" class="payment-info">
-      
-                  </div>
-
-                  <div id="other-info" class="payment-info">
-                  <p>Please contact customer service for alternative payment methods</p>
-                 </div>
+  <div id="crypto-info" class="payment-info">
+    <p><i class="icon-crypto"></i> We accept Bitcoin, Ethereum, and USDC.</p>
+    <p>A unique crypto address will be generated for your order.</p>
+  </div>
 
                   </select>
                 </select>

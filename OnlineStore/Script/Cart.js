@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const promoMessage = document.getElementById("promo-message");
   const checkoutForm = document.getElementById("checkout-form");
   const promoCodeInput = document.getElementById("promo-code");
-const paymentMethodSelect = document.getElementById("payment-method")
+  const paymentMethodSelect = document.getElementById("payment-method");
+  const paymentInfoSections = document.querySelectorAll(".payment-info");
 
   // Load cart from localStorage with error handling
   try {
@@ -71,22 +72,56 @@ const paymentMethodSelect = document.getElementById("payment-method")
   }
 
   if (paymentMethodSelect) {
-  paymentMethodSelect.addEventListener("change", function() {
-    // Hide all payment info sections first
-    document.querySelectorAll('.payment-info').forEach(section => {
-      section.style.display = 'none';
-    });
-    
-    // Show the selected payment method section
-    const selectedMethod = this.value;
-    if (selectedMethod) {
-      const selectedSection = document.getElementById(`${selectedMethod}-info`);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
+    paymentMethodSelect.addEventListener("change", function () {
+      // Hide all payment info sections first
+      document.querySelectorAll(".payment-info").forEach((section) => {
+        section.style.display = "none";
+      });
+
+      // Show the selected payment method section
+      const selectedMethod = this.value;
+      if (selectedMethod) {
+        const selectedSection = document.getElementById(
+          `${selectedMethod}-info`
+        );
+        if (selectedSection) {
+          selectedSection.style.display = "block";
+        }
       }
-    }
-  });
-}
+    });
+  }
+
+  //format credit card number input
+  // Format credit card inputs
+  const cardNumberInput = document.getElementById("card-number");
+  const expiryDateInput = document.getElementById("expiry-date");
+  const cvvInput = document.getElementById("cvv");
+
+  if (cardNumberInput) {
+    cardNumberInput.addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\s+/g, "");
+      if (value.length > 0) {
+        value = value.match(new RegExp(".{1,4}", "g")).join(" ");
+      }
+      e.target.value = value;
+    });
+  }
+
+  if (expiryDateInput) {
+    expiryDateInput.addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, "");
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + "/" + value.substring(2, 4);
+      }
+      e.target.value = value;
+    });
+  }
+
+  if (cvvInput) {
+    cvvInput.addEventListener("input", function (e) {
+      e.target.value = e.target.value.replace(/\D/g, "").substring(0, 4);
+    });
+  }
 
   // Add item to cart
   window.addToCart = function (name, price) {
@@ -130,6 +165,45 @@ const paymentMethodSelect = document.getElementById("payment-method")
       discountAmount,
       grandTotal,
     };
+  }
+  function validatePayment() {
+    const paymentMethod = paymentMethodSelect?.value;
+    if (!paymentMethod) {
+      showMessage("Please select a payment method", "error");
+      return false;
+    }
+
+    // Credit card specific validation
+    if (paymentMethod === "credit-card") {
+      const cardNumber = document
+        .getElementById("card-number")
+        ?.value.replace(/\s/g, "");
+      const expiryDate = document.getElementById("expiry-date")?.value;
+      const cvv = document.getElementById("cvv")?.value;
+      const cardName = document.getElementById("card-name")?.value;
+
+      if (!cardNumber || cardNumber.length < 16) {
+        showMessage("Please enter a valid card number", "error");
+        return false;
+      }
+
+      if (!expiryDate || !/^\d{2}\/\d{2}$/.test(expiryDate)) {
+        showMessage("Please enter a valid expiry date (MM/YY)", "error");
+        return false;
+      }
+
+      if (!cvv || cvv.length < 3) {
+        showMessage("Please enter a valid CVV", "error");
+        return false;
+      }
+
+      if (!cardName) {
+        showMessage("Please enter the name on card", "error");
+        return false;
+      }
+    }
+
+    return true;
   }
 
   // Update cart display
@@ -225,6 +299,10 @@ const paymentMethodSelect = document.getElementById("payment-method")
     const email = document.getElementById("email")?.value.trim();
     const paymentMethod = document.getElementById("payment-method")?.value;
 
+    if (!validatePayment()) {
+      return;
+    }
+
     if (!name || !address || !email || !paymentMethod) {
       showMessage("Please fill in all required fields", "error");
       return;
@@ -240,6 +318,10 @@ const paymentMethodSelect = document.getElementById("payment-method")
     const totals = calculateCartTotals(Cart, appliedDiscount, freeShipping);
     if (totals.totalItems === 0) {
       showMessage("Your cart is empty!", "error");
+      return;
+    }
+    if (!paymentMethod) {
+      showMessage("Please select a payment method", "error");
       return;
     }
 
