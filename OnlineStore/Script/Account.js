@@ -1,5 +1,7 @@
 "use strict";
+// Account functionality
 
+// Get all the necessary DOM elements
 document.addEventListener("DOMContentLoaded", function () {
   // DOM Elements
   const accountForm = document.getElementById("accountForm");
@@ -202,6 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.innerHTML =
       '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating account...';
 
+    //confirmed that account.js is loaded
+
+    document.addEventListener("DOMContentLoaded", function () {
+      alert("Account Created Successfully.");
+    });
+
     // Simulate API call (replace with actual fetch)
     setTimeout(() => {
       // Show success message
@@ -209,14 +217,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Redirect after delay
       setTimeout(() => {
-        window.location.href = "/OnlineStore/Pages/account-created.html";
-      }, 2000);
+        window.location.href = "../Pages/AccountPage.html";
+      }, 6000);
     }, 1500);
   });
 });
-//confirmed that account.js is loaded
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Account.js loaded successfully.");
-});
-  // Add any additional functionality or event listeners here
-  
+

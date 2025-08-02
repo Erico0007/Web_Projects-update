@@ -353,6 +353,8 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       existingOrders.push(orderSummary);
       localStorage.setItem("OrderHistory", JSON.stringify(existingOrders));
+      showMessage("Order placed successfully!", "success");
+      
 
       // Clear cart
       Cart = [];
@@ -411,3 +413,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   }
 });
+
+//Log out 
+// Clear user session
+localStorage.removeItem("isLoggedIn");
+// Redirect to home page
+window.location.href = "../index.html";

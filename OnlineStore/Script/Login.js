@@ -105,5 +105,5 @@ document.getElementById("username").addEventListener("input", function () {
 document
   .getElementById("createAccountLink")
   .addEventListener("click", function () {
-    window.location.href = "Account.html"; // Redirect to account creation page
+    window.location.href = "../Pages/AccountPage.html"; // Redirect to account creation page
   });
