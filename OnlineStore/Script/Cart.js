@@ -414,8 +414,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//Log out 
-// Clear user session
-localStorage.removeItem("isLoggedIn");
-// Redirect to home page
-window.location.href = "../index.html";
+
