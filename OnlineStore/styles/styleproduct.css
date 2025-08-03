@@ -123,7 +123,8 @@ nav ul li a.active {
 
 /* Footer layout and color */
 footer {
-  background: #35424a; /* Matches header/nav color */
+  font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
+  background: #35424a;
   color: #ffffff;
   text-align: center;
   padding: 10px 0;
