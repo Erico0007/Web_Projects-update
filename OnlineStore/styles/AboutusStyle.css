@@ -12,7 +12,20 @@ body {
   gap: 20px; /* Note: gap only works inside flex/grid containers */
 }
 
-
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 
 h1,
 h2,
@@ -50,4 +63,25 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 10px 0;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
 }

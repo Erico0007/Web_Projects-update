@@ -2,6 +2,9 @@
 /* CSS Document for Lab-1 
 Developed by Eric Ekra
 Script Date: June 4 2025 */
+
+
+
 .payment-section {
   margin: 20px 0;
   padding: 20px;
@@ -99,4 +102,19 @@ Script Date: June 4 2025 */
 
 .paypal-logo img {
   height: 40px;
+}
+
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
 }

@@ -121,6 +121,12 @@ nav ul li a.active {
   border-radius: 4px;
 }
 
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
 /* Footer layout and color */
 footer {
   font-family: "Lobster", cursive, fantasy, Arial, Helvetica, sans-serif;
@@ -128,4 +134,19 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 10px 0;
+}
+
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
 }
