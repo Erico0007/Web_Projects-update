@@ -5,7 +5,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // DOM Elements
   const accountForm = document.getElementById("accountForm");
-  const fullNameInput = document.getElementById("fullName");
+  const firstNameInput = document.getElementById("First Name");
+  const LastNameinout = document.getElementById("Last Name");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirmPassword");
@@ -199,6 +200,20 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Prepare user data
+    const userData = {
+      firstName: firstNameInput.value.trim(),
+      lastName: lastNmeInput.value.trim(),
+      email: emailInput.value.trim(),
+      // In a real app, you would NEVER store passwords in localStorage
+      // This is just for demonstration
+      password: passwordInput.value,
+      lastUpdated: new Date().toISOString(),
+    };
+
+    // Save to localStorage
+    localStorage.setItem("userData", JSON.stringify(userData));
+
     // Disable submit button
     submitBtn.disabled = true;
     submitBtn.innerHTML =
@@ -222,4 +237,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   });
 });
-
