@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("resetEmail", email); // Save email temporarily
       messageDiv.innerHTML = `<div class="alert alert-success">A reset link has been sent to your email (simulated).</div>`;
 
-      //  Simulate redirect to ResetPassword.html
+      // Simulate redirect to ResetPassword.html
       setTimeout(() => {
         window.location.href = "../Pages/ResetPassword.html";
       }, 2000);
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //  Email validation function
+  // ✅ Email validation function
   function isValidEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
