@@ -7,75 +7,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const errorMessage = document.getElementById("error-message");
   const resetBtn = document.getElementById("resetForm");
 
-  if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      
-      const email = emailInput.value.trim();
-      const password = passwordInput.value.trim();
+  loginForm?.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      // Clear previous errors
-      errorMessage.classList.add("d-none");
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
 
-      // Validate inputs
-      if (!email || !password) {
-        showError("Please enter both email and password.");
-        return;
-      }
+    errorMessage.classList.add("d-none");
 
-      // Simulate login - replace with actual authentication
-      if (email === "user@example.com" && password === "password123") {
-        // Store authentication state
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userData", JSON.stringify({
-          fullName: "Test User",
-          email: email,
-          createdAt: new Date().toISOString()
-        }));
-        
-        // Redirect to account page
-        window.location.href = "AccountPage.html";
-      } else {
-        showError("Invalid email or password.");
-      }
-    });
-  }
+    if (!email || !password) {
+      showError("Please enter both email and password.");
+      return;
+    }
 
-  // Reset form
-  if (resetBtn) {
-    resetBtn.addEventListener("click", function() {
-      emailInput.value = "";
-      passwordInput.value = "";
-      errorMessage.classList.add("d-none");
-    });
-  }
+    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+
+    if (storedUser && email === storedUser.email && password === storedUser.password) {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userData", JSON.stringify(storedUser));
+      window.location.href = "AccountPage.html";
+    } else {
+      showError("Invalid email or password.");
+    }
+  });
+
+  resetBtn?.addEventListener("click", function () {
+    emailInput.value = "";
+    passwordInput.value = "";
+    errorMessage.classList.add("d-none");
+  });
 
   function showError(message) {
     errorMessage.textContent = message;
     errorMessage.classList.remove("d-none");
-  }
-
-  // Input validation
-  emailInput?.addEventListener("blur", validateEmail);
-  passwordInput?.addEventListener("blur", validatePassword);
-
-  function validateEmail() {
-    const email = emailInput.value.trim();
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (email && !re.test(email)) {
-      showError("Please enter a valid email address.");
-      return false;
-    }
-    return true;
-  }
-
-  function validatePassword() {
-    const password = passwordInput.value.trim();
-    if (password && password.length < 8) {
-      showError("Password must be at least 8 characters long.");
-      return false;
-    }
-    return true;
   }
 });

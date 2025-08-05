@@ -18,16 +18,19 @@
     <meta name="author" content="Eric Ekra" />
   </head>
 
-   <script src="../Script/AccountPage.js"></script>
   <body>
-    <!-- Navbar (same as create-account page) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      aria-label="Main Navigation"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="OnlineStore.html">SYSTEMSTORES</a>
         <span class="navbar-text">Best Online Shopping Experience</span>
-    <script src="../js/theme.js"></script>
       </div>
     </nav>
+
+    <!-- Main Container -->
     <div class="container my-5">
       <div class="row">
         <!-- Sidebar Menu -->
@@ -57,10 +60,10 @@
                 >Settings</a
               >
               <a
-                href="../Pages/logout.html"
+                href="#Logout"
+                id="logoutButton"
                 class="list-group-item list-group-item-action text-danger"
-                >Logout</a
-              >
+                >Logout</a>
             </div>
           </div>
         </div>
@@ -77,25 +80,20 @@
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <label class="form-label">First Name</label>
-                    <input type="text" class="form-control" value=" " />
+                    <input type="text" class="form-control" name="firstName" />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Last Name</label>
-                    <input type="text" class="form-control" value=" " />
+                    <input type="text" class="form-control" name="lastName" />
                   </div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    value=" "
-                    readonly
-                  />
+                  <input type="email" class="form-control" readonly />
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Phone</label>
-                  <input type="tel" class="form-control" value=" " />
+                  <input type="tel" class="form-control" />
                 </div>
                 <button type="submit" class="btn btn-primary">
                   Update Profile
@@ -104,7 +102,7 @@
             </div>
           </div>
 
-          <!-- Order History (Sample) -->
+          <!-- Order History Section -->
           <div class="card shadow-sm" id="orders">
             <div class="card-header bg-light">
               <h4>Recent Orders</h4>
@@ -122,15 +120,7 @@
                       <th>Total</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-
-                        <a href="#" class="btn btn-sm btn-outline-primary"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -138,17 +128,26 @@
         </div>
       </div>
     </div>
-    <!-- Footer (same as create-account page) -->
-     <footer>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5">
       <p>&copy; 2025 SYSTEMSTORES. All Rights Reserved.</p>
       <p><a href="privacy.html">Privacy Policy</a></p>
-      <a href="tel:+1-438-926-0244">Call Us</a>
-      <a href="mailto:amon.yaoekra@mail.mcgill.ca?subject=Hello&body=I%20wanted%20to%20reach%20out.">Email Us</a>
-     <div class="language-switcher">
-      <button type="button" class="lang-btn active" data-lang="en">English</button>
-      <button type="button"  class="lang-btn active" data-lang="fr">Français</button>
-    </div> 
+      <a href="tel:+1-438-926-0244">Call Us</a> |
+      <a
+        href="mailto:amon.yaoekra@mail.mcgill.ca?subject=Hello&body=I%20wanted%20to%20reach%20out."
+        >Email Us</a
+      >
+      <div class="language-switcher mt-2">
+        <button type="button" class="lang-btn active" data-lang="en">
+          English
+        </button>
+        <button type="button" class="lang-btn" data-lang="fr">Français</button>
+      </div>
     </footer>
-   
+
+    <!-- Scripts -->
+    <script src="../Script/AccountPage.js"></script>
+    <script src="../js/theme.js"></script>
   </body>
 </html>

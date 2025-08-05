@@ -11,18 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const termsCheck = document.getElementById("termsCheck");
   const submitBtn = document.getElementById("submitBtn");
   const agreeTermsBtn = document.getElementById("agreeTermsBtn");
-  const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+  const successToast = new bootstrap.Toast(
+    document.getElementById("successToast")
+  );
 
   // Regular expressions
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const nameRegex = /^[a-zA-Zà-üÀ-Ü\s'-]{2,50}$/;
 
   // Validation functions
   function validateFirstName() {
     const name = firstNameInput.value.trim();
     const helpText = document.getElementById("firstNameHelp");
-    
+
     if (name.length < 2) {
       helpText.textContent = "First name must be at least 2 characters";
       helpText.className = "form-text error";
@@ -30,15 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
       firstNameInput.classList.remove("is-valid");
       return false;
     }
-    
+
     if (!nameRegex.test(name)) {
-      helpText.textContent = "First name can only contain letters, spaces, hyphens, and apostrophes";
+      helpText.textContent =
+        "First name can only contain letters, spaces, hyphens, and apostrophes";
       helpText.className = "form-text error";
       firstNameInput.classList.add("is-invalid");
       firstNameInput.classList.remove("is-valid");
       return false;
     }
-    
+
     helpText.textContent = "";
     helpText.className = "form-text";
     firstNameInput.classList.remove("is-invalid");
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateLastName() {
     const name = lastNameInput.value.trim();
     const helpText = document.getElementById("lastNameHelp");
-    
+
     if (name.length < 2) {
       helpText.textContent = "Last name must be at least 2 characters";
       helpText.className = "form-text error";
@@ -57,15 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
       lastNameInput.classList.remove("is-valid");
       return false;
     }
-    
+
     if (!nameRegex.test(name)) {
-      helpText.textContent = "Last name can only contain letters, spaces, hyphens, and apostrophes";
+      helpText.textContent =
+        "Last name can only contain letters, spaces, hyphens, and apostrophes";
       helpText.className = "form-text error";
       lastNameInput.classList.add("is-invalid");
       lastNameInput.classList.remove("is-valid");
       return false;
     }
-    
+
     helpText.textContent = "";
     helpText.className = "form-text";
     lastNameInput.classList.remove("is-invalid");
@@ -102,7 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
     strengthBar.className = "password-strength strength-0";
 
     if (password.length === 0) {
-      helpText.textContent = "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.";
+      helpText.textContent =
+        "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.";
       helpText.className = "form-text";
       passwordInput.classList.remove("is-invalid");
       passwordInput.classList.remove("is-valid");
@@ -127,8 +133,14 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
 
-    if (!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password) || !/[^A-Za-z0-9]/.test(password)) {
-      helpText.textContent = "Password must include uppercase, lowercase, number, and special character";
+    if (
+      !/[A-Z]/.test(password) ||
+      !/[a-z]/.test(password) ||
+      !/[0-9]/.test(password) ||
+      !/[^A-Za-z0-9]/.test(password)
+    ) {
+      helpText.textContent =
+        "Password must include uppercase, lowercase, number, and special character";
       helpText.className = "form-text error";
       passwordInput.classList.add("is-invalid");
       passwordInput.classList.remove("is-valid");
@@ -199,10 +211,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const isConfirmPasswordValid = validateConfirmPassword();
     const isTermsChecked = termsCheck.checked;
 
-    if (!isFirstNameValid || !isLastNameValid || !isEmailValid || 
-        !isPasswordValid || !isConfirmPasswordValid || !isTermsChecked) {
+    if (
+      !isFirstNameValid ||
+      !isLastNameValid ||
+      !isEmailValid ||
+      !isPasswordValid ||
+      !isConfirmPasswordValid ||
+      !isTermsChecked
+    ) {
       if (!isTermsChecked) {
-        const termsModal = new bootstrap.Modal(document.getElementById("termsModal"));
+        const termsModal = new bootstrap.Modal(
+          document.getElementById("termsModal")
+        );
         termsModal.show();
       }
       return;
@@ -210,15 +230,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Disable submit button during processing
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating account...';
+    submitBtn.innerHTML =
+      '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating account...';
 
     // Prepare user data
     const userData = {
       firstName: firstNameInput.value.trim(),
       lastName: lastNameInput.value.trim(),
       email: emailInput.value.trim(),
-      // Note: In production, never store plain passwords - this is just for demonstration
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     // Save to localStorage (simulating account creation)

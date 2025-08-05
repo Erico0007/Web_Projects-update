@@ -1,19 +1,24 @@
+
+"use strict"
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Authentication Check
+  // 🔐 Authentication Check
   if (!localStorage.getItem("isLoggedIn")) {
-    window.location.href = "../Pages/Login.html";  // Redirect to login if not authenticated
+    window.location.href = "../Pages/Login.html";
     return;
   }
 
-  // DOM Elements
-  const profileForm = document.getElementById("profileUpdateForm");
-  const firstNameInput = document.querySelector("#profile input[name='firstName']");
-  const lastNameInput = document.querySelector("#profile input[name='lastName']");
-  const emailInput = document.querySelector("#profile input[type='email']");
-  const phoneInput = document.querySelector("#profile input[type='tel']");
+  // 🌟 DOM Elements
+  const profileForm = document.getElementById("profileForm");
+  const firstNameInput = profileForm.querySelector("input[type='text']");
+  const lastNameInput = profileForm.querySelectorAll("input[type='text']")[1];
+  const emailInput = profileForm.querySelector("input[type='email']");
+  const phoneInput = profileForm.querySelector("input[type='tel']");
   const logoutButton = document.getElementById("logoutButton");
+  const container = document.querySelector(".container");
 
-  // Load user data with defaults
+  // 📦 Load user data
   const userData = JSON.parse(localStorage.getItem("userData")) || {
     firstName: "",
     lastName: "",
@@ -22,72 +27,82 @@ document.addEventListener("DOMContentLoaded", function () {
     createdAt: new Date().toISOString()
   };
 
-  // Populate form fields
+  // 👋 Welcome Message
+  const welcomeMessage = document.createElement("div");
+  welcomeMessage.className = "alert alert-success mt-3";
+  welcomeMessage.textContent = `Welcome , ${userData.firstName || "User"}!`;
+  container.prepend(welcomeMessage);
+
+  // 📝 Populate form fields
   firstNameInput.value = userData.firstName || "";
   lastNameInput.value = userData.lastName || "";
   emailInput.value = userData.email || "";
   phoneInput.value = userData.phone || "";
 
-  // Form Submission Handler
-  if (profileForm) {
-    profileForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-      
-      try {
-        // Get updated values
-        const updatedData = {
-          firstName: firstNameInput.value.trim(),
-          lastName: lastNameInput.value.trim(),
-          email: emailInput.value.trim(),
-          phone: phoneInput.value.trim(),
-          createdAt: userData.createdAt // Preserve original creation date
-        };
+  // ✅ Form Submission Handler
+  profileForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        // Basic validation
-        if (!updatedData.email || !validateEmail(updatedData.email)) {
-          throw new Error("Please enter a valid email address");
-        }
+    try {
+      const updatedData = {
+        firstName: firstNameInput.value.trim(),
+        lastName: lastNameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        createdAt: userData.createdAt
+      };
 
-        // Save to localStorage
-        localStorage.setItem("userData", JSON.stringify(updatedData));
-        
-        // Show success feedback
-        showSuccessMessage("Profile updated successfully!");
-        
-        // Optional: Redirect after delay
-        setTimeout(() => {
-          window.location.href = "../Pages/AccountPage.html";
-        }, 1000);
-        
-      } catch (error) {
-        console.error("Profile update error:", error);
-        showErrorMessage(error.message || "Failed to update profile. Please try again.");
+      // Basic validation
+      if (!updatedData.email || !validateEmail(updatedData.email)) {
+        throw new Error("Please enter a valid email address.");
       }
-    });
-  }
 
-  // Logout Handler
+      if (!updatedData.firstName || !updatedData.lastName) {
+        throw new Error("First and last name are required.");
+      }
+
+      // Save updated data
+      localStorage.setItem("userData", JSON.stringify(updatedData));
+
+      showSuccessMessage("Profile updated successfully!");
+
+      // Optional redirect
+      setTimeout(() => {
+        window.location.href = "../Pages/AccountPage.html";
+      }, 1000);
+    } catch (error) {
+      console.error("Profile update error:", error);
+      showErrorMessage(error.message || "Failed to update profile.");
+    }
+  });
+
+  // 🚪 Logout Handler
   if (logoutButton) {
-    logoutButton.addEventListener("click", function() {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("userData");
-      window.location.href = "../Pages/Login.html";
-    });
-  }
+  logoutButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default anchor behavior
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userData");
+    window.location.href = "../Pages/Login.html"; // Redirect to login
+  });
+}
 
-  // Helper Functions
+  // 🧠 Helper Functions
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   }
 
   function showSuccessMessage(message) {
-    // You can replace this with a toast notification or other UI element
-    alert(message);
+    const alert = document.createElement("div");
+    alert.className = "alert alert-success mt-3";
+    alert.textContent = message;
+    container.prepend(alert);
   }
 
   function showErrorMessage(message) {
-    // You can replace this with a more sophisticated error display
-    alert(message);
+    const alert = document.createElement("div");
+    alert.className = "alert alert-danger mt-3";
+    alert.textContent = message;
+    container.prepend(alert);
   }
 });
