@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = emailInput.value.trim();
     const newPassword = newPasswordInput.value.trim();
 
-    // ✅ Validate email format
+    //  Validate email format
     if (!isValidEmail(email)) {
       messageBox.textContent = "Please enter a valid email address.";
       messageBox.className = "text-warning";
       return;
     }
 
-    // ✅ Validate password length
+    //  Validate password length
     if (newPassword.length < 8) {
       messageBox.textContent = "Password must be at least 8 characters long.";
       messageBox.className = "text-warning";
       return;
     }
 
-    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
 
     if (!storedUser || storedUser.email !== email) {
       messageBox.textContent = "Email not found. Please try again.";
@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // ✅ Update password
+    //  Update password
     storedUser.password = newPassword;
-    localStorage.setItem("registeredUser", JSON.stringify(storedUser));
+    localStorage.setItem("userData", JSON.stringify(storedUser));
 
     messageBox.innerHTML = `<div class="alert alert-success">Password reset successfully! Redirecting to login...</div>`;
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   });
 
-  // ✅ Email validation function
+  //  Email validation function
   function isValidEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

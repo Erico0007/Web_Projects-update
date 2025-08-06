@@ -20,12 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+    // Use the correct key: "userData"
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
+    console.log("Stored user:", storedUser);
+
+    console.log("Entered email:", email);
+    console.log("Entered password:", password);
 
     if (storedUser && email === storedUser.email && password === storedUser.password) {
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userData", JSON.stringify(storedUser));
-      window.location.href = "AccountPage.html";
+      localStorage.setItem("userData", JSON.stringify(storedUser)); // optional, already stored
+      window.location.href = "../Pages/AccountPage.html";
     } else {
       showError("Invalid email or password.");
     }

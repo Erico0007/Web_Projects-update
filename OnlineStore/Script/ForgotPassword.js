@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //  Retrieve stored user
-    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
 
     if (storedUser && email === storedUser.email) {
       //  Simulate sending a reset link

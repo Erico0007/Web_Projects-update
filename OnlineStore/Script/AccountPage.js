@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     createdAt: new Date().toISOString()
   };
 
-  // 👋 Welcome Message
+  //  Welcome Message
   const welcomeMessage = document.createElement("div");
   welcomeMessage.className = "alert alert-success mt-3";
   welcomeMessage.textContent = `Welcome , ${userData.firstName || "User"}!`;
   container.prepend(welcomeMessage);
 
-  // 📝 Populate form fields
+  //  Populate form fields
   firstNameInput.value = userData.firstName || "";
   lastNameInput.value = userData.lastName || "";
   emailInput.value = userData.email || "";
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       showSuccessMessage("Profile updated successfully!");
 
-      // Optional redirect
+      //  redirect
       setTimeout(() => {
         window.location.href = "../Pages/AccountPage.html";
       }, 1000);
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 🚪 Logout Handler
+  // Logout Handler
   if (logoutButton) {
   logoutButton.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default anchor behavior

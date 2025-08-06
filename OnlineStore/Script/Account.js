@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
       firstName: firstNameInput.value.trim(),
       lastName: lastNameInput.value.trim(),
       email: emailInput.value.trim(),
+      password: passwordInput.value.trim(),
       createdAt: new Date().toISOString(),
     };
 
