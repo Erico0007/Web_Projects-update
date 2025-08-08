@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  //  DOM Elements
+  // DOM Elements
   const profileForm = document.getElementById("profileForm");
   const firstNameInput = profileForm.querySelector("input[type='text']");
   const lastNameInput = profileForm.querySelectorAll("input[type='text']")[1];
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logoutButton");
   const container = document.querySelector(".container");
   const tbody = document.querySelector("#orders table tbody");
-  const placeOrderBtn = document.querySelector(".placeOrderBtn"); //
+  const placeOrderBtn = document.querySelector(".placeOrderBtn"); // ✅ Fixed selector
 
   //  Load user data
   const userData = JSON.parse(localStorage.getItem("userData")) || {
@@ -24,25 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
     lastName: "",
     email: "",
     phone: "",
-    createdAt: new Date().toISOString()
+    createdAt: new Date().toISOString(),
   };
 
   //  Load orders
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
-  const userOrders = orders.filter(order => order.email === userData.email); 
+  const userOrders = orders.filter((order) => order.email === userData.email); // ✅ Moved inside DOMContentLoaded
 
-  //  Welcome Message
+  // 👋 Welcome Message
   const welcomeMessage = document.createElement("div");
   welcomeMessage.className = "alert alert-success mt-3";
   welcomeMessage.textContent = `Welcome, ${userData.firstName || "User"}!`;
   container.prepend(welcomeMessage);
 
-  // Load and display orders if table exists
-  if (ordersTable && tbody) {
-    loadAndDisplayOrders(userData.email);
-  }
-
-  //  Populate form fields
+  // 🖊️ Populate form fields
   firstNameInput.value = userData.firstName || "";
   lastNameInput.value = userData.lastName || "";
   emailInput.value = userData.email || "";
@@ -58,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lastName: lastNameInput.value.trim(),
         email: emailInput.value.trim(),
         phone: phoneInput.value.trim(),
-        createdAt: userData.createdAt
+        createdAt: userData.createdAt,
       };
 
       if (!updatedData.email || !validateEmail(updatedData.email)) {
@@ -81,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //  Place Order from  Account 
+  // 🛒 Place Order from Table
   tbody.addEventListener("click", function (event) {
     if (event.target.classList.contains("placeOrderBtn")) {
       const index = event.target.getAttribute("data-index");
@@ -89,8 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      order.items.forEach(item => {
-        const existingItem = cart.find(cartItem => cartItem.name === item.name);
+      order.items.forEach((item) => {
+        const existingItem = cart.find(
+          (cartItem) => cartItem.name === item.name
+        );
         if (existingItem) {
           existingItem.quantity += item.quantity;
         } else {
@@ -136,7 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${index + 1}</td>
         <td>${order.orderId}</td>
         <td>${new Date(order.date).toLocaleDateString()}</td>
-        <td>${order.items.map(item => `${item.quantity} × ${item.name}`).join("<br>")}</td>
+        <td>${order.items
+          .map((item) => `${item.quantity} × ${item.name}`)
+          .join("<br>")}</td>
         <td>$${order.subtotal.toFixed(2)}</td>
         <td>$${order.total.toFixed(2)}</td>
         <td><button class="btn btn-sm btn-success placeOrderBtn" data-index="${index}">Place Order</button></td>
@@ -165,27 +164,3 @@ document.addEventListener("DOMContentLoaded", function () {
     container.prepend(alert);
   }
 });
-
- function displayWelcomeMessage(user) {
-    const welcomeMessage = document.createElement("div");
-    welcomeMessage.className = "alert alert-success mt-3";
-    welcomeMessage.innerHTML = `
-      <h4>Welcome back, ${user.firstName || "User"}!</h4>
-      <p class="mb-0">Member since ${new Date(user.createdAt).toLocaleDateString()}</p>
-    `;
-    container.prepend(welcomeMessage);
-  }
-
-function loadAndDisplayOrders(userEmail) {
-    try {
-      const orders = JSON.parse(localStorage.getItem("orders")) || [];
-      const userOrders = orders.filter(order => 
-        order.email === userEmail || order.customer?.email === userEmail
-      );
-      
-      displayOrders(userOrders);
-    } catch (e) {
-      console.error("Error loading orders:", e);
-      showErrorMessage("Failed to load order history. Please try again later.");
-    }
-  }
