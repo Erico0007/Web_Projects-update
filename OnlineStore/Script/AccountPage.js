@@ -1,15 +1,13 @@
-
-"use strict"
-
+"use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-  // 🔐 Authentication Check
+  //  Authentication Check
   if (!localStorage.getItem("isLoggedIn")) {
     window.location.href = "../Pages/Login.html";
     return;
   }
 
-  // 🌟 DOM Elements
+  //  DOM Elements
   const profileForm = document.getElementById("profileForm");
   const firstNameInput = profileForm.querySelector("input[type='text']");
   const lastNameInput = profileForm.querySelectorAll("input[type='text']")[1];
@@ -17,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const phoneInput = profileForm.querySelector("input[type='tel']");
   const logoutButton = document.getElementById("logoutButton");
   const container = document.querySelector(".container");
+  const tbody = document.querySelector("#orders table tbody");
+  const placeOrderBtn = document.querySelector(".placeOrderBtn"); // ✅ Fixed selector
 
-  // 📦 Load user data
+  //  Load user data
   const userData = JSON.parse(localStorage.getItem("userData")) || {
     firstName: "",
     lastName: "",
@@ -27,10 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
     createdAt: new Date().toISOString()
   };
 
+  //  Load orders
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const userOrders = orders.filter(order => order.email === userData.email); // ✅ Moved inside DOMContentLoaded
+
   //  Welcome Message
   const welcomeMessage = document.createElement("div");
   welcomeMessage.className = "alert alert-success mt-3";
-  welcomeMessage.textContent = `Welcome , ${userData.firstName || "User"}!`;
+  welcomeMessage.textContent = `Welcome, ${userData.firstName || "User"}!`;
   container.prepend(welcomeMessage);
 
   //  Populate form fields
@@ -39,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   emailInput.value = userData.email || "";
   phoneInput.value = userData.phone || "";
 
-  // ✅ Form Submission Handler
+  //  Form Submission Handler
   profileForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -52,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
         createdAt: userData.createdAt
       };
 
-      // Basic validation
       if (!updatedData.email || !validateEmail(updatedData.email)) {
         throw new Error("Please enter a valid email address.");
       }
@@ -61,12 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
         throw new Error("First and last name are required.");
       }
 
-      // Save updated data
       localStorage.setItem("userData", JSON.stringify(updatedData));
-
       showSuccessMessage("Profile updated successfully!");
 
-      //  redirect
       setTimeout(() => {
         window.location.href = "../Pages/AccountPage.html";
       }, 1000);
@@ -76,26 +76,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  if (logoutButton) {
-  logoutButton.addEventListener("click", function (event) {
-    event.preventDefault();
+  //  Place Order from Table
+  tbody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("placeOrderBtn")) {
+      const index = event.target.getAttribute("data-index");
+      const order = userOrders[index];
 
-    // Optional: Confirm logout
-    const confirmLogout = confirm("Are you sure you want to log out?");
-    if (!confirmLogout) return;
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Clear session
-    localStorage.removeItem("isLoggedIn");
-    // Optional: Show feedback before redirect
-    alert("You have been logged out.");
+      order.items.forEach(item => {
+        const existingItem = cart.find(cartItem => cartItem.name === item.name);
+        if (existingItem) {
+          existingItem.quantity += item.quantity;
+        } else {
+          cart.push({ ...item });
+        }
+      });
 
-    // Redirect to login page
-    window.location.href = "../Pages/Login.html";
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "../Pages/Cart.html";
+    }
   });
-}
 
+  //  Optional Static Button Handler
+  if (placeOrderBtn) {
+    placeOrderBtn.addEventListener("click", function () {
+      window.location.href = "../Pages/Cart.html";
+    });
+  }
 
-  // 🧠 Helper Functions
+  //  Logout Handler
+  if (logoutButton) {
+    logoutButton.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const confirmLogout = confirm("Are you sure you want to log out?");
+      if (!confirmLogout) return;
+
+      localStorage.removeItem("isLoggedIn");
+      alert("You have been logged out.");
+      window.location.href = "../Pages/Login.html";
+    });
+  }
+
+  //  Display User Orders
+  if (userOrders.length === 0) {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td colspan="6" class="text-center">You have no orders yet.</td>`;
+    tbody.appendChild(row);
+  } else {
+    userOrders.forEach((order, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${order.orderId}</td>
+        <td>${new Date(order.date).toLocaleDateString()}</td>
+        <td>${order.items.map(item => `${item.quantity} × ${item.name}`).join("<br>")}</td>
+        <td>$${order.subtotal.toFixed(2)}</td>
+        <td>$${order.total.toFixed(2)}</td>
+        <td><button class="btn btn-sm btn-success placeOrderBtn" data-index="${index}">Place Order</button></td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  //  Helper Functions
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
@@ -115,3 +160,5 @@ document.addEventListener("DOMContentLoaded", function () {
     container.prepend(alert);
   }
 });
+
+

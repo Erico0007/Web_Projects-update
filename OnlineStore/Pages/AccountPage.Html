@@ -33,7 +33,18 @@
     <!-- Main Container -->
     <div class="container my-5">
       <div class="row">
-        <!-- Sidebar Menu -->
+       
+        <!-- Quick Order Section -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-light">
+            <h4>Quick Order</h4>
+          </div>
+          <div class="card-body">
+            <p>Click below to place an order:</p>
+            <button class="btn btn-sm btn-success placeOrderBtn" data-index="0">Place Order</button>
+          </div>
+        </div>
+          <!-- Sidebar Menu -->
         <div class="col-md-3 mb-4">
           <div class="card shadow-sm">
             <div class="card-header bg-primary text-white">
@@ -48,6 +59,7 @@
               <a href="#orders" class="list-group-item list-group-item-action"
                 >Order History</a
               >
+
               <a
                 href="#addresses"
                 class="list-group-item list-group-item-action"
@@ -63,7 +75,8 @@
                 href="#Logout"
                 id="logoutButton"
                 class="list-group-item list-group-item-action text-danger"
-                >Logout</a>
+                >Logout</a
+              >
             </div>
           </div>
         </div>
