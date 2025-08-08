@@ -248,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show success message
     successToast.show();
+    alert("Account created successuflly !");
 
     // Redirect to account page after delay
     setTimeout(() => {

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Email validation function
+  //  Email validation function
   function isValidEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
