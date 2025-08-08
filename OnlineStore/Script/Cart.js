@@ -347,6 +347,30 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
+      // Get current user from localStorage
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+      if (currentUser) {
+        // If user is logged in, save order to their account
+        const users = JSON.parse(localStorage.getItem("userdata") || "[]");
+        const userIndex = users.findIndex(u => u.email === currentUser.email);
+
+        if (userIndex !== -1) {
+          // Initialize orders array if it doesn't exist
+          if (!users[userIndex].orders) {
+            users[userIndex].orders = [];
+          }
+
+          // Add new order
+          users[userIndex].orders.push(orderSummary);
+          localStorage.setItem("users", JSON.stringify(users));
+
+          // Update currentUser in localStorage
+          currentUser.orders = users[userIndex].orders;
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        }
+      }
+
       // Save order to history
       const existingOrders = JSON.parse(
         localStorage.getItem("OrderHistory") || "[]"
@@ -354,7 +378,6 @@ document.addEventListener("DOMContentLoaded", function () {
       existingOrders.push(orderSummary);
       localStorage.setItem("OrderHistory", JSON.stringify(existingOrders));
       showMessage("Order placed successfully!", "success");
-      
 
       // Clear cart
       Cart = [];
@@ -412,6 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "products.html";
     }, 2000);
   }
-});
+ }
 
+);
 // Order 

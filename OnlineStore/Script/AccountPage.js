@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logoutButton");
   const container = document.querySelector(".container");
   const tbody = document.querySelector("#orders table tbody");
-  const placeOrderBtn = document.querySelector(".placeOrderBtn"); // ✅ Fixed selector
+  const placeOrderBtn = document.querySelector(".placeOrderBtn"); //
 
   //  Load user data
   const userData = JSON.parse(localStorage.getItem("userData")) || {
@@ -29,13 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //  Load orders
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
-  const userOrders = orders.filter(order => order.email === userData.email); // ✅ Moved inside DOMContentLoaded
+  const userOrders = orders.filter(order => order.email === userData.email); 
 
   //  Welcome Message
   const welcomeMessage = document.createElement("div");
   welcomeMessage.className = "alert alert-success mt-3";
   welcomeMessage.textContent = `Welcome, ${userData.firstName || "User"}!`;
   container.prepend(welcomeMessage);
+
+  // Load and display orders if table exists
+  if (ordersTable && tbody) {
+    loadAndDisplayOrders(userData.email);
+  }
 
   //  Populate form fields
   firstNameInput.value = userData.firstName || "";
@@ -76,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //  Place Order from Table
+  //  Place Order from  Account 
   tbody.addEventListener("click", function (event) {
     if (event.target.classList.contains("placeOrderBtn")) {
       const index = event.target.getAttribute("data-index");
@@ -161,4 +166,26 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+ function displayWelcomeMessage(user) {
+    const welcomeMessage = document.createElement("div");
+    welcomeMessage.className = "alert alert-success mt-3";
+    welcomeMessage.innerHTML = `
+      <h4>Welcome back, ${user.firstName || "User"}!</h4>
+      <p class="mb-0">Member since ${new Date(user.createdAt).toLocaleDateString()}</p>
+    `;
+    container.prepend(welcomeMessage);
+  }
 
+function loadAndDisplayOrders(userEmail) {
+    try {
+      const orders = JSON.parse(localStorage.getItem("orders")) || [];
+      const userOrders = orders.filter(order => 
+        order.email === userEmail || order.customer?.email === userEmail
+      );
+      
+      displayOrders(userOrders);
+    } catch (e) {
+      console.error("Error loading orders:", e);
+      showErrorMessage("Failed to load order history. Please try again later.");
+    }
+  }
