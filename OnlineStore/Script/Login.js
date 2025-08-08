@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (storedUser && email === storedUser.email && password === storedUser.password) {
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userData", JSON.stringify(storedUser)); // optional, already stored
       window.location.href = "../Pages/AccountPage.html";
     } else {
       showError("Invalid email or password.");

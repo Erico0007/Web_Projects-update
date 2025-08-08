@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
     messageBox.innerHTML = `<div class="alert alert-success">Password reset successfully! Redirecting to login...</div>`;
 
     setTimeout(() => {
-      window.location.href = "Login.html";
+      window.location.href = "../Pages/Login.html";
     }, 2000);
   });
 

@@ -76,15 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Logout Handler
   if (logoutButton) {
   logoutButton.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default anchor behavior
+    event.preventDefault();
+
+    // Optional: Confirm logout
+    const confirmLogout = confirm("Are you sure you want to log out?");
+    if (!confirmLogout) return;
+
+    // Clear session
     localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userData");
-    window.location.href = "../Pages/Login.html"; // Redirect to login
+    // Optional: Show feedback before redirect
+    alert("You have been logged out.");
+
+    // Redirect to login page
+    window.location.href = "../Pages/Login.html";
   });
 }
+
 
   // 🧠 Helper Functions
   function validateEmail(email) {
