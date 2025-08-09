@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (currentUser) {
         // If user is logged in, save order to their account
         const users = JSON.parse(localStorage.getItem("userdata") || "[]");
-        const userIndex = users.findIndex(u => u.email === currentUser.email);
+        const userIndex = users.findIndex((u) => u.email === currentUser.email);
 
         if (userIndex !== -1) {
           // Initialize orders array if it doesn't exist
@@ -435,7 +435,4 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "products.html";
     }, 2000);
   }
- }
-
-);
-
+});
