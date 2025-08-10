@@ -360,45 +360,61 @@ const translations = {
   },
 };
 
-// Apply translations to the page
+// 🌐 Detect preferred language
+const browserLang = navigator.language.slice(0, 2);
+const supportedLangs = Object.keys(translations);
+let currentLang =
+  localStorage.getItem("preferredLanguage") ||
+  (supportedLangs.includes(browserLang) ? browserLang : "en");
+
+// 🧠 Apply translations
 function applyTranslations(lang) {
-  // Update all elements with data-translate attribute
-  document.querySelectorAll("[data-translate]").forEach((element) => {
-    const key = element.getAttribute("data-translate");
-    if (translations[lang] && translations[lang][key]) {
-      if (element.placeholder) {
-        element.placeholder = translations[lang][key];
+  if (!translations[lang]) {
+    console.warn(`Language '${lang}' not supported`);
+    return;
+  }
+
+  document.querySelectorAll("[data-translate]").forEach((el) => {
+    const key = el.getAttribute("data-translate");
+    const translation = translations[lang][key];
+    if (translation) {
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        if (el.hasAttribute("placeholder")) {
+          el.placeholder = translation;
+        } else {
+          el.value = translation;
+        }
+      } else if (el.tagName === "META") {
+        el.setAttribute("content", translation);
+      } else if (el.tagName === "TITLE") {
+        document.title = translation;
       } else {
-        element.textContent = translations[lang][key];
+        el.textContent = translation;
       }
     }
   });
 
-  // Update HTML lang attribute
-  document.documentElement.lang = lang;
-
-  // Update active language button
+  // Update active button
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
   });
+
+  // Update HTML lang and direction
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 }
 
-// Initialize language on page load
-document.addEventListener("DOMContentLoaded", function () {
-  // Set default language from localStorage or browser preference
-  const preferredLanguage =
-    localStorage.getItem("preferredLanguage") ||
-    (navigator.language.startsWith("fr") ? "fr" : "en");
-
-  // Apply translations
-  applyTranslations(preferredLanguage);
-
-  // Set up language switcher buttons
-  document.querySelectorAll(".lang-btn").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang");
-      localStorage.setItem("preferredLanguage", lang);
-      applyTranslations(lang);
-    });
+// 🌍 Language switcher
+document.querySelectorAll(".lang-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const selectedLang = btn.getAttribute("data-lang");
+    if (selectedLang && selectedLang !== currentLang) {
+      currentLang = selectedLang;
+      localStorage.setItem("preferredLanguage", selectedLang);
+      applyTranslations(selectedLang);
+    }
   });
 });
+
+// 🚀 Initial load
+applyTranslations(currentLang);
