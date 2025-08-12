@@ -169,3 +169,9 @@ footer.dark-mode {
 .btn-outline-secondary {
   margin-top: 10px;
 }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
