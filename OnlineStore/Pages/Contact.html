@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | SYSTEMSTORES</title>
-    <link rel="stylesheet" href="../styles/Contact.css " />
+    <title data-translate="Contact">Contact | SYSTEMSTORES</title>
+    <link rel="stylesheet" href="../styles/Contact.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Lobster"
@@ -17,16 +18,25 @@
   </head>
   <body>
     <script src="../Script/Contactus.js"></script>
+    <script src = "../Script/lang.js"></script>
     <header>
-      <body>
-      <h1>Contact Us</h1>
+      <h1 data-translate="Contact">Contact Us</h1>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light"
         aria-label="Main Navigation"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="../OnlineStore.html">SYSTEMSTORES</a>
-          <span class="navbar-text">Best Online Shopping Experience</span>
+          <a
+            class="navbar-brand"
+            href="../OnlineStore.html"
+            data-translate="SYSTEMSTORES"
+            >SYSTEMSTORES</a
+          >
+          <span
+            class="navbar-text"
+            data-translate="Best Online Shopping Experience"
+            >Best Online Shopping Experience</span
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -38,37 +48,60 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <!-- This is the navigation bar for the contact page -->
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="../OnlineStore.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="products.html">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Cart.html">Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="AboutUs.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="OrderHistory.html">Order History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Account.html"> Account</a>
-              </li>
+                <a
+                  class="nav-link"
+                  href="../OnlineStore.html"
+                  data-translate="Home"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="Login.html"
-                  data-translate="Login"
-                  >Login</a>
+                  href="products.html"
+                  data-translate="Products"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Cart.html" data-translate="Cart"
+                  >Cart</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.html" data-translate="Contact"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="AboutUs.html"
+                  data-translate="About Us"
+                  >About Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="OrderHistory.html"
+                  data-translate="Order History"
+                  >Order History</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Account.html" data-translate="Account"
+                  >Account</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Login.html" data-translate="Login"
+                  >Login</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -76,30 +109,37 @@
     </header>
 
     <main>
-      <h2>Get in Touch</h2>
-      <p>
+      <h2 data-translate="Get in Touch">Get in Touch</h2>
+      <p data-translate="If you have any questions or need assistance">
         If you have any questions or need assistance, please fill out the form
         below:
       </p>
 
       <form id="contact-form">
-        <label for="name">Name:</label>
+        <label for="name" data-translate="Name">Name:</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="email">Email:</label>
+        <label for="email" data-translate="Email Us">Email:</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="message">Message:</label>
+        <label for="message" data-translate="Message">Message:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit" data-translate="Send Message">
+          Send Message
+        </button>
       </form>
     </main>
+
     <footer>
-      <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
+      <p data-translate="© 2025">
+        © 2025 SYSTEMSTORES.
+        <span data-translate="All rights reserved">All rights reserved</span>.
+      </p>
       <div class="language-switcher">
-      <button type="button" class="lang-btn active" data-lang="fr">Français</button>
-    </div> 
+       <button type="button" class="lang-btn" data-lang="fr" data-translate="Français">Français</button>
+        </button>
+      </div>
     </footer>
   </body>
 </html>

@@ -1,340 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" data-translate="lang">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart | SYSTEMSTORES</title>
+    <title data-translate="Cart | SYSTEMSTORES">Cart | SYSTEMSTORES</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/Cart.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Lobster"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
 
-  <body>
+<body>
     <!-- Header -->
-    <script src="../Script/Cart.js"></script>
     <header>
-      <body>
-      <h1>Shopping Cart</h1>
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light"
-        aria-label="Main Navigation"
-      >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../OnlineStore.html">SYSTEMSTORES</a>
-          <span class="navbar-text">Best Online Shopping Experience</span>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <h1 data-translate="Shopping Cart">Shopping Cart</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../OnlineStore.html" data-translate="SYSTEMSTORES">SYSTEMSTORES</a>
+                <span class="navbar-text" data-translate="Best Online Shopping Experience">Best Online Shopping Experience</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="../OnlineStore.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="products.html">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Cart.html">Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Contact.html">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="AboutUs.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="OrderHistory.html">Order History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Account.html">Account</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Login.html">Login</a>
-                
-            </ul>
-          </div>
-        </div>
-      </nav>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../OnlineStore.html" data-translate="Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="products.html" data-translate="Products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Cart.html" data-translate="Cart">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html" data-translate="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="AboutUs.html" data-translate="About Us">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="OrderHistory.html" data-translate="Order History">Order History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Account.html" data-translate="Account">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Login.html" data-translate="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Main Content -->
     <main>
-      <h2>Your Cart</h2>
-      <p class="center-text">Review your selected items before checkout.</p>
+        <h2 data-translate="Your Cart">Your Cart</h2>
+        <p class="center-text" data-translate="Review your selected items before checkout">Review your selected items before checkout.</p>
 
-      <!-- Cart Items -->
-      <div class="container mt-4">
-        <section id="product-list">
-          <h2>Products</h2>
-          <div class="row">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product1.jpg"
-                  class="card-img-top"
-                  alt="Product 1"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product1</p>
-                  <p class="card-text">19.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product1', 19.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product1')">
-                    Remove from Cart
-                  </button>
+        <!-- Cart Items -->
+        <div class="container mt-4">
+            <section id="product-list">
+                <h2 data-translate="Products">Products</h2>
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product1.jpg" class="card-img-top" alt="Product 1" />
+                            <div class="card-body">
+                                <p class="card-title">Product1</p>
+                                <p class="card-text">19.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product1', 19.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product1')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product2.jpg" class="card-img-top" alt="Product 2" />
+                            <div class="card-body">
+                                <p class="card-title">Product2</p>
+                                <p class="card-text">20.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product2', 20.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product2')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product3.jpg" class="card-img-top" alt="Product 3" />
+                            <div class="card-body">
+                                <p class="card-title">Product 3</p>
+                                <p class="card-text">22.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product 3', 22.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product 3')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product4.jpg" class="card-img-top" alt="Product 4" />
+                            <div class="card-body">
+                                <p class="card-title">Product 4</p>
+                                <p class="card-text">20.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product 4', 20.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product 4')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product5.jpg" class="card-img-top" alt="Product 5" />
+                            <div class="card-body">
+                                <p class="card-title">Product 5</p>
+                                <p class="card-text">1099.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product 5', 1099.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product 5')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="../Images/Product6.jpg" class="card-img-top" alt="Product 6" />
+                            <div class="card-body">
+                                <p class="card-title">Product 6</p>
+                                <p class="card-text">15.99 CAD</p>
+                                <button class="btn btn-primary" onclick="addToCart('Product 6', 15.99)" data-translate="Add to Cart">Add to Cart</button>
+                                <button class="btn btn-primary" onclick="removeFromCart('Product 6')" data-translate="Remove from Cart">Remove from Cart</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product2.jpg"
-                  class="card-img-top"
-                  alt="Product 2"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product2</p>
-                  <p class="card-text">20.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product2', 20.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product2')">
-                    Remove from Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product3.jpg"
-                  class="card-img-top"
-                  alt="Product 3"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product 3</p>
-                  <p class="card-text">22.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product 3', 22.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product 3')">
-                    Remove from Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product4.jpg"
-                  class="card-img-top"
-                  alt="Product 4"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product 4</p>
-                  <p class="card-text">20.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product 4', 20.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product 4')">
-                    Remove from Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product5.jpg"
-                  class="card-img-top"
-                  alt="Product 5"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product 5</p>
-                  <p class="card-text">1099.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product 5', 1099.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product 5')">
-                    Remove from Cart
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <img
-                  src="../Images/Product6.jpg"
-                  class="card-img-top"
-                  alt="Product 6"
-                />
-                <div class="card-body">
-                  <p class="card-title">Product 6</p>
-                  <p class="card-text">15.99 CAD</p>
-                  <button
-                    class="btn btn-primary"
-                    onclick="addToCart('Product 6', 15.99)"
-                  >
-                    Add to Cart
-                  </button>
-                  <button class="btn btn-primary" onclick="removeFromCart('Product 6')">
-                    Remove from Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Cart Summary -->
-          <h3>Cart Summary</h3>
+                <!-- Cart Summary -->
+                <h3 data-translate="Cart Summary">Cart Summary</h3>
+                <p><span data-translate="Total items">Total items</span>: <span id="item-count">0</span></p>
+                <p><span data-translate="Total price">Total price</span>: <span id="total-price">0.00 CAD</span></p>
+                <p><span data-translate="Shipping">Shipping</span>: <span id="shipping-cost">0.00 CAD</span></p>
+                <p><span data-translate="Tax">Tax</span>: <span id="tax-amount">0.00 CAD</span></p>
+                <p><span data-translate="Grand Total">Grand Total</span>: <span id="grand-total">0.00 CAD</span></p>
+                
+                <div id="cart-items" class="mt-3"></div>
+                
+                <!-- Promo Code Section -->
+                <section id="promo-code-section" class="mt-4">
+                    <h3 data-translate="Promo Code">Promo Code</h3>
+                    <input type="text" id="promo-code-input" class="form-control" data-translate-placeholder="Enter promo code" placeholder="Enter promo code" />
+                    <button id="apply-promo-code" class="btn btn-primary mt-2" data-translate="Apply">Apply</button>
+                </section>
 
-          <p>Total items: <span id="item-count">0</span></p>
+                <!-- Checkout Section -->
+                <section id="checkout-section" class="mt-4">
+                    <h4 data-translate="Checkout">Checkout</h4>
+                    <form id="checkout-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label" data-translate="Name">Name</label>
+                            <input type="text" class="form-control" id="name" required data-translate-placeholder="Name" placeholder="Name" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label" data-translate="Email">Email</label>
+                            <input type="email" class="form-control" id="email" required data-translate-placeholder="Email" placeholder="Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label" data-translate="Address">Address</label>
+                            <input type="text" class="form-control" id="address" required data-translate-placeholder="Address" placeholder="Address" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="payment-method" class="form-label" data-translate="Payment Method">Payment Method</label>
+                            <select id="payment-method" class="form-select" required>
+                                <option value="" data-translate="Select a payment method">Select a payment method</option>
+                                <option value="credit-card" data-translate="Credit Card">Credit Card</option>
+                                <option value="paypal" data-translate="PayPal">PayPal</option>
+                                <option value="bank-transfer" data-translate="Bank Transfer">Bank Transfer</option>
+                                <option value="cryptocurrency" data-translate="Cryptocurrency">Cryptocurrency</option>
+                            </select>
+                        </div>
 
-          <p>Total price: <span id="total-price">0.00 CAD</span></p>
-          <p>Shipping: <span id="shipping-cost">0.00 CAD</span></p>
-          <p>Tax: <span id="tax-amount">0.00 CAD</span></p>
-          <p>Grand Total: <span id="grand-total">0.00 CAD</span></p>
-          <div id="cart-items" class="mt-3"></div>
-          //Add the promo code section
-          <section id="promo-code-section" class="mt-4">
-            <h3>Promo Code</h3>
-            <input type="text" id="promo-code-input" class="form-control" placeholder="Enter promo code" />
-            <button id="apply-promo-code" class="btn btn-primary mt-2">Apply</button>
-          </section>
-          <section id="checkout-section" class="mt-4">
-            <h4>Checkout</h4>
-            <form id="checkout-form">
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" required />
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required />
-              </div>
-              <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" required />
-              </div>
-              <div class="mb-3">
-                <label for="payment-method" class="form-label">Payment Method</label>
-                <select id="payment-method" class="form-select" required>
-                  <option value="">Select a payment method</option>
-                  <option value="credit-card">Credit Card</option>
-                  <option value="paypal">PayPal</option>
-                  <option value="bank-transfer">Bank Transfer</option>
-                  <option value="cryptocurrency">Cryptocurrency</option>
+                        <!-- Payment Method Details -->
+                        <div id="credit-card-info" class="payment-info">
+                            <div class="form-group">
+                                <label for="card-number" data-translate="Card Number">Card Number</label>
+                                <input type="text" id="card-number" data-translate-placeholder="Card Number" placeholder="1234 5678 9012 3456" />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry-date" data-translate="Expiry Date">Expiry Date</label>
+                                    <input type="text" id="expiry-date" data-translate-placeholder="Expiry Date" placeholder="MM/YY" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv" data-translate="CVV">CVV</label>
+                                    <input type="text" id="cvv" data-translate-placeholder="CVV" placeholder="123" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-name" data-translate="Name on Card">Name on Card</label>
+                                <input type="text" id="card-name" data-translate-placeholder="Name on Card" placeholder="John Doe" />
+                            </div>
+                        </div>
 
-                   
-                 <!-- Payment info sections -->
-  <div id="credit-card-info" class="payment-info">
-    <div class="form-group">
-      <label for="card-number">Card Number</label>
-      <input type="text" id="card-number" placeholder="1234 5678 9012 3456" data-payment="card-number">
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label for="expiry-date">Expiry Date</label>
-        <input type="text" id="expiry-date" placeholder="MM/YY" data-payment="expiry">
-      </div>
-      <div class="form-group">
-        <label for="cvv">CVV</label>
-        <input type="text" id="cvv" placeholder="123" data-payment="cvv">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="card-name">Name on Card</label>
-      <input type="text" id="card-name" placeholder="John Doe" data-payment="card-name">
-    </div>
-  </div>
+                        <div id="paypal-info" class="payment-info">
+                            <p data-translate="You'll be redirected to PayPal">You'll be redirected to PayPal to complete your payment securely.</p>
+                        </div>
 
-  <div id="paypal-info" class="payment-info">
-    <div class="paypal-logo">
-      <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal">
-    </div>
-    <p>You'll be redirected to PayPal to complete your payment securely.</p>
-  </div>
+                        <div id="bank-transfer-info" class="payment-info">
+                            <p data-translate="Bank transfer details will be provided">Bank transfer details will be provided after checkout.</p>
+                        </div>
 
-  <div id="bank-transfer-info" class="payment-info">
-    <p><i class="icon-bank"></i> Bank transfer details will be provided after checkout.</p>
-    <p>Please use your order ID as the payment reference.</p>
-  </div>
+                        <div id="crypto-info" class="payment-info">
+                            <p data-translate="We accept Bitcoin, Ethereum, and USDC">We accept Bitcoin, Ethereum, and USDC.</p>
+                        </div>
 
-  <div id="crypto-info" class="payment-info">
-    <p><i class="icon-crypto"></i> We accept Bitcoin, Ethereum, and USDC.</p>
-    <p>A unique crypto address will be generated for your order.</p>
-  </div>
+                        <button id="checkout-button" class="btn btn-success" type="submit" data-translate="Place Order">Place Order</button>
+                    </form>
 
-                  </select>
-                </select>
-              </div>
+                    <!-- Order Confirmation -->
+                    <div id="order-confirmation" class="mt-3 p-3 bg-light rounded d-none">
+                        <h4 data-translate="Order Confirmation">Order Confirmation</h4>
+                        <div id="order-details"></div>
+                    </div>
 
-          <!-- Checkout Button -->
-
-          <button id="checkout-button" class="btn btn-success" type="submit">Place Order</button>
-
-          <!-- Cart Items List -->
-          <div id="order-confirmation" class="mt-3 p-3 bg-light rounded d-none">
-            <h4>Order Confirmation</h4>
-            <div id="order-details"></div>
-          </div>
-
-          <!-- Clear Cart and Continue Shopping Buttons -->
-
-          <button id="clear-cart-button" class="btn btn-danger" type="button">
-            Clear Cart
-          </button>
-          <button id="continue-shopping-button" class="btn btn-secondary" type="button">
-            Continue Shopping
-          </button>
-          <!-- Save Cart Button -->
-          <button id="save-cart-button" class="btn btn-info" type="button">Save Cart</button>
-          <!-- Load Cart Button -->
-          <button id="load-cart-button" class="btn btn-warning" type="button">
-            Load Cart
-          </button>
-        </section>
-      </div>
-      <!-- Footer -->
-      <footer>
-        <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
-       <div class="language-switcher">
-      <button type="button"  class="lang-btn active" data-lang="fr">Français</button>
-    </div> 
-      </footer>
+                    <!-- Cart Management Buttons -->
+                    <div class="mt-3">
+                        <button id="clear-cart-button" class="btn btn-danger" data-translate="Clear Cart">Clear Cart</button>
+                        <button id="continue-shopping-button" class="btn btn-secondary" data-translate="Continue Shopping">Continue Shopping</button>
+                        <button id="save-cart-button" class="btn btn-info" data-translate="Save Cart">Save Cart</button>
+                        <button id="load-cart-button" class="btn btn-warning" data-translate="Load Cart">Load Cart</button>
+                    </div>
+                </section>
+            </section>
+        </div>
     </main>
-  </body>
 
-  <!-- Place this just before </body> -->
+    <!-- Footer -->
+    <footer>
+        <p><span data-translate="© 2025">© 2025</span> <span data-translate="SYSTEMSTORES">SYSTEMSTORES</span>. <span data-translate="All rights reserved">All rights reserved</span>.</p>
+        <div class="language-switcher">
+            <button type="button" class="lang-btn active" data-lang="fr" data-translate="Français">Français</button>
+        </div>
+    </footer>
+
+    <script src="../Script/Cart.js"></script>
+     <script src = "../Script/lang.js"></script>
+</body>
 </html>
