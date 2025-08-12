@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     passwordInput.classList.add("is-valid");
     return true;
   }
-
+// Validate the Password 
   function validateConfirmPassword() {
     const password = passwordInput.value;
     const confirmPassword = confirmPasswordInput.value;

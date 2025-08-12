@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 🛒 Place Order from Table
+  //  Place Order from Table
   tbody.addEventListener("click", function (event) {
     if (event.target.classList.contains("placeOrderBtn")) {
       const index = event.target.getAttribute("data-index");

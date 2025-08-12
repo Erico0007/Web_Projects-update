@@ -1,4 +1,4 @@
-"use sttric";
+"use strict";
 
 // Complete translation dictionary for SYSTEMSTORES
 

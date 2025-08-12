@@ -1,5 +1,5 @@
 "use strict";
-
+// DOM Elements
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
   const emailInput = document.getElementById("email");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Use the correct key: "userData"
+    // Name the Variables. 
     const storedUser = JSON.parse(localStorage.getItem("userData"));
     console.log("Stored user:", storedUser);
 
