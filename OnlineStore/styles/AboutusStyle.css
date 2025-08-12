@@ -35,6 +35,20 @@ h3 {
   font-size: 2.5em;
   text-align: center;
 }
+.lang-switcher {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.lang-btn {
+  background-color: #35424a; /* Deep navy-gray */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 
 .lobster-text {
   font-family: "Lobster", cursive;
