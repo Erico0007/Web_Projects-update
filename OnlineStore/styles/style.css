@@ -28,6 +28,32 @@ body {
   border-radius: 5px;
   margin-left: 10px;
 }
+.lang-btn:hover {
+  background-color: blue;
+}
+
+.lang-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* For navbar integration */
+.navbar-nav .language-toggle {
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .lang-btn {
+  margin: 0 3px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  .navbar-nav .language-toggle {
+    padding: 0.5rem 0;
+    justify-content: flex-start;
+  }
+}
 
 /* Main heading style */
 h1,
