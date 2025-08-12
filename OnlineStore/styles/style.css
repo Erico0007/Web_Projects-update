@@ -230,3 +230,7 @@ th {
   background-color: #35424a;
   color: #ffffff;
 }
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
