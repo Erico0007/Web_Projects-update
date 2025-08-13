@@ -240,3 +240,40 @@ body.dark-mode {
     padding: 1rem;
   }
 }
+/* The font on the form*/
+
+.form-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label,
+    .form-text,
+    .form-check-label,
+    .card-footer {
+      font-family: "Lobster", cursive;
+    }
+
+    .btn-primary {
+      background-color: teal;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card-footer a {
+      color: teal;
+      text-decoration: none;
+    }
+
+    .card-footer a:hover {
+      text-decoration: underline;
+    }
