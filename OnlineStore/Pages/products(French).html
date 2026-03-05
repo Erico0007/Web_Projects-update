@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-translate="Products | SYSTEMSTORES">
-      Products | SYSTEMSTORES
+      Produits | SYSTEMSTORES
     </title>
     <link rel="stylesheet" href="../styles/styleproduct.css" />
     <link
@@ -12,13 +12,15 @@
       rel="stylesheet"
     />
   </head>
- <div class="language-switcher">
+
+  <div class="language-switcher">
     <a href="products.html">English</a>
     <a href="products(French).html">Français</a>
-      </div>
+  </div>
+
   <body>
     <header>
-      <h1 data-translate="Products">Products</h1>
+      <h1 data-translate="Products">Produits</h1>
 
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light"
@@ -34,8 +36,9 @@
           <span
             class="navbar-text"
             data-translate="Best Online Shopping Experience"
-            >Best Online Shopping Experience</span
+            >La meilleure expérience d'achat en ligne</span
           >
+
           <button
             class="navbar-toggler"
             type="button"
@@ -53,53 +56,60 @@
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="../OnlineStore.html"
+                  href="../OnlineStore(French).HTML"
                   data-translate="Home"
-                  >Home</a
+                  >Accueil</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="products.html"
+                  href="products(French).html"
                   data-translate="Products"
-                  >Products</a
+                  >Produits</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Cart.html" data-translate="Cart"
-                  >Cart</a
+                <a class="nav-link" href="Cart(French).html" data-translate="Cart"
+                  >Panier</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Contact.html" data-translate="Contact"
+                <a class="nav-link" href="Contact(French).html" data-translate="Contact"
                   >Contact</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="AboutUs.html"
+                  href="AboutUs(French).html"
                   data-translate="About Us"
-                  >About Us</a
+                  >À propos</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="OrderHistory.html"
+                  href="OrderHistory(French).html"
                   data-translate="Order History"
-                  >Order History</a
+                  >Historique des commandes</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Account.html" data-translate="Account"
-                  >Account</a
+                <a class="nav-link" href="Account(French).html" data-translate="Account"
+                  >Compte</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Login.html" data-translate="Login"
-                  >Login</a
+                <a class="nav-link" href="Login(French).html" data-translate="Login"
+                  >Connexion</a
                 >
               </li>
             </ul>
@@ -109,25 +119,26 @@
     </header>
 
     <section id="filter-section">
-      <h2 data-translate="Filter Products">Filter Products</h2>
+      <h2 data-translate="Filter Products">Filtrer les produits</h2>
+
       <form id="filter-form">
-        <label for="category" data-translate="Category:">Category:</label>
+        <label for="category" data-translate="Category:">Catégorie :</label>
         <select id="category" name="category">
-          <option value="all" data-translate="All">All</option>
+          <option value="all" data-translate="All">Toutes</option>
           <option value="beauty" data-translate="Beauty & Personal Care">
-            Beauty & Personal Care
+            Beauté & Soins personnels
           </option>
-          <option value="books" data-translate="Books">Books</option>
+          <option value="books" data-translate="Books">Livres</option>
           <option value="electronics" data-translate="Electronics">
-            Electronics
+            Électronique
           </option>
           <option value="home" data-translate="Home & Kitchen">
-            Home & Kitchen
+            Maison & Cuisine
           </option>
         </select>
 
         <label for="price-range" data-translate="Price Range:"
-          >Price Range:</label
+          >Fourchette de prix :</label
         >
         <input
           type="range"
@@ -140,10 +151,11 @@
         <span id="price-value" data-translate="$0 - $2000">$0 - $2000</span>
 
         <button type="button" id="apply-filters" data-translate="Apply Filters">
-          Apply Filters
+          Appliquer les filtres
         </button>
+
         <button type="reset" id="reset-filters" data-translate="Reset Filters">
-          Reset Filters
+          Réinitialiser
         </button>
       </form>
     </section>
@@ -152,19 +164,19 @@
       <div class="product-grid">
         <article class="product-card" data-category="beauty" data-price="19.99">
           <img src="../Images/product1.jpg" alt="Lotion Reversa" width="500" />
-          <h3 data-translate="Product 1">Product 1</h3>
+          <h3 data-translate="Product 1">Produit 1</h3>
           <p data-translate="$19.99">$19.99</p>
         </article>
 
         <article class="product-card" data-category="beauty" data-price="24.99">
           <img src="../Images/product2.jpg" alt="Acne Toner" width="500" />
-          <h3 data-translate="Product 2">Product 2</h3>
+          <h3 data-translate="Product 2">Produit 2</h3>
           <p data-translate="$24.99">$24.99</p>
         </article>
 
         <article class="product-card" data-category="beauty" data-price="19.99">
           <img src="../Images/product3.jpg" alt="Listerine" width="500" />
-          <h3 data-translate="Product 3">Product 3</h3>
+          <h3 data-translate="Product 3">Produit 3</h3>
           <p data-translate="$19.99">$19.99</p>
         </article>
 
@@ -174,28 +186,24 @@
           data-price="199.99"
         >
           <img src="../Images/product4.jpg" alt="Android Watch" width="500" />
-          <h3 data-translate="Product 4">Product 4</h3>
+          <h3 data-translate="Product 4">Produit 4</h3>
           <p data-translate="$199.99">$199.99</p>
         </article>
 
         <article class="product-card" data-category="home" data-price="1999.99">
           <img src="../Images/product5.jpg" alt="Samsung Stove" width="500" />
-          <h3 data-translate="Product 5">Product 5</h3>
+          <h3 data-translate="Product 5">Produit 5</h3>
           <p data-translate="$1999.99">$1999.99</p>
         </article>
 
         <article class="product-card" data-category="books" data-price="49.99">
-          <img
-            src="../Images/product6.jpg"
-            alt=" Death Detective"
-            width="500"
-          />
-          <h3>Product 6</h3>
-          <p>$49.99</p>
+          <img src="../Images/product6.jpg" alt="Death Detective" width="500" />
+          <h3 data-translate="Product 6">Produit 6</h3>
+          <p data-translate="$49.99">$49.99</p>
         </article>
       </div>
       <footer>
-        <p>&copy; 2025 SYSTEMSTORES. All rights reserved.</p>
+        <p>&copy; 2025 SYSTEMSTORES. Tous droits réservés.</p>
       </footer>
       <script src="../Script/Products.js"></script>
       <script src="../Script/lang.js"></script>

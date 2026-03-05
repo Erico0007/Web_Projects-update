@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="My Account">Mon Compte | SYSTEMSTORES</title>
+
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <meta name="description" content="Gérez votre compte sur SYSTEMSTORES" data-translate="Manage your account on SYSTEMSTORES" />
+    <meta name="keywords" content="Compte, achats en ligne, profil utilisateur" data-translate="Account, online shopping, user profile" />
+    <meta name="author" content="Eric Ekra" />
+  </head>
+
+  <div class="language-switcher">
+    <a href="AccountPage.html">English</a>
+    <a href="AccountPage(French).html">Français</a>
+  </div>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="OnlineStore.html" data-translate="SYSTEMSTORES">SYSTEMSTORES</a>
+        <span class="navbar-text" data-translate="Best Online Shopping Experience">
+          La meilleure expérience d'achat en ligne
+        </span>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+      <div class="row">
+
+        <!-- Quick Order Section -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-light">
+            <h4 data-translate="Quick Order">Commande rapide</h4>
+          </div>
+          <div class="card-body">
+            <p data-translate="Click below to place an order">Cliquez ci-dessous pour passer une commande :</p>
+            <button class="btn btn-sm btn-success placeOrderBtn" data-index="0" data-translate="Place Order">
+              Passer une commande
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <div class="col-md-3 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0" data-translate="Account Menu">Menu du compte</h5>
+            </div>
+
+            <div class="list-group list-group-flush">
+              <a href="#profile" class="list-group-item list-group-item-action active" data-translate="Profile">
+                Profil
+              </a>
+              <a href="#orders" class="list-group-item list-group-item-action" data-translate="Order History">
+                Historique des commandes
+              </a>
+              <a href="#addresses" class="list-group-item list-group-item-action" data-translate="Addresses">
+                Adresses
+              </a>
+              <a href="#payment" class="list-group-item list-group-item-action" data-translate="Payment Methods">
+                Modes de paiement
+              </a>
+              <a href="#settings" class="list-group-item list-group-item-action" data-translate="Settings">
+                Paramètres
+              </a>
+              <a href="#Logout" id="logoutButton" class="list-group-item list-group-item-action text-danger" data-translate="Logout">
+                Déconnexion
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+
+          <!-- Profile Section -->
+          <div class="card shadow-sm mb-4" id="profile">
+            <div class="card-header bg-light">
+              <h4 data-translate="Profile Information">Informations du profil</h4>
+            </div>
+
+            <div class="card-body">
+              <form id="profileForm">
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label" data-translate="First Name">Prénom</label>
+                    <input type="text" class="form-control" name="firstName" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" data-translate="Last Name">Nom</label>
+                    <input type="text" class="form-control" name="lastName" />
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" data-translate="Email">Courriel</label>
+                  <input type="email" class="form-control" readonly />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" data-translate="Phone">Téléphone</label>
+                  <input type="tel" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary" data-translate="Update Profile">
+                  Mettre à jour le profil
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Order History Section -->
+          <div class="card shadow-sm" id="orders">
+            <div class="card-header bg-light">
+              <h4 data-translate="Recent Orders">Commandes récentes</h4>
+            </div>
+
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th data-translate="Order #">Commande #</th>
+                      <th data-translate="Confirmation #">Confirmation #</th>
+                      <th data-translate="Date">Date</th>
+                      <th data-translate="Items">Articles</th>
+                      <th data-translate="Subtotal">Sous-total</th>
+                      <th data-translate="Total">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5">
+      <p data-translate="© 2025 SYSTEMSTORES. All Rights Reserved.">
+        &copy; 2025 SYSTEMSTORES. Tous droits réservés.
+      </p>
+
+      <p><a href="privacy.html" data-translate="Privacy Policy">Politique de confidentialité</a></p>
+
+      <a href="tel:+1-438-926-0244" data-translate="Call Us">Appelez-nous</a> |
+      <a href="mailto:amon.yaoekra@mail.mcgill.ca?subject=Hello&body=I%20wanted%20to%20reach%20out." data-translate="Email Us">
+        Envoyez-nous un courriel
+      </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../Script/AccountPage.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../Script/lang.js"></script>
+  </body>
+</html>

@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
       window.location.href = "../Pages/Login.html";
+      
     }, 2000);
   });
 

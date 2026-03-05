@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créer un compte | SYSTEMSTORES</title>
+
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <meta name="description" content="Créez votre compte sur SYSTEMSTORES" />
+    <meta name="keywords" content="Créer un compte, achats en ligne" />
+    <meta name="author" content="Eric Ekra" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <div class="language-switcher">
+    <a href="Account.html">English</a>
+    <a href="Account(French).html">Français</a>
+  </div>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      aria-label="Main Navigation"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="OnlineStore.html">SYSTEMSTORES</a>
+        <span class="navbar-text">La meilleure expérience d'achat en ligne</span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <script src="../js/theme.js"></script>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../OnlineStore(French).html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="products(French).html">Produits</a></li>
+            <li class="nav-item"><a class="nav-link" href="Cart(French).html">Panier</a></li>
+            <li class="nav-item"><a class="nav-link" href="Contact(French).html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="AboutUs(French).html">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="OrderHistory(French).html">Historique des commandes</a></li>
+            <li class="nav-item"><a class="nav-link" href="Account(French).html">Compte</a></li>
+            <li class="nav-item"><a class="nav-link" href="Login(French).html">Connexion</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Create Account Form -->
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-header text-center bg-primary text-white">
+              <h4>Créer votre compte</h4>
+            </div>
+
+            <div class="card-body">
+              <form id="accountForm">
+                <div class="mb-3">
+                  <label for="First Name" class="form-label">Prénom</label>
+                  <input type="text" class="form-control" id="First Name" required />
+                  <small id="firstNameHelp" class="form-text"></small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="Last Name" class="form-label">Nom</label>
+                  <input type="text" class="form-control" id="Last Name" required />
+                  <small id="lastNameHelp" class="form-text"></small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Adresse courriel</label>
+                  <input type="email" class="form-control" id="email" name="email" required />
+                  <div class="form-text" id="emailHelp"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Mot de passe</label>
+                  <input type="password" class="form-control" id="password" name="password" required />
+                  <div class="password-strength" id="passwordStrength"></div>
+                  <div class="form-text" id="passwordHelp">
+                    Le mot de passe doit contenir au moins 8 caractères, incluant une majuscule, une minuscule, un chiffre et un caractère spécial.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label">Confirmez le mot de passe</label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+                  <div class="form-text" id="confirmPasswordHelp"></div>
+                </div>
+
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="termsCheck" required />
+                  <label class="form-check-label" for="termsCheck">
+                    J'accepte les <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Conditions générales</a>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" id="submitBtn">
+                  Créer le compte
+                </button>
+              </form>
+            </div>
+
+            <div class="card-footer text-center">
+              <small>Vous avez déjà un compte ? <a href="/OnlineStore/Pages/login.html">Connectez-vous</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="termsModalLabel">Conditions générales</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+
+          <div class="modal-body">
+            <p>En créant un compte, vous acceptez nos conditions d'utilisation et notre politique de confidentialité :</p>
+            <ol>
+              <li>Vous devez fournir des informations exactes et complètes.</li>
+              <li>Vous êtes responsable de la confidentialité de vos identifiants.</li>
+              <li>Vous acceptez de recevoir des courriels promotionnels (désinscription possible).</li>
+              <li>Nous nous réservons le droit de suspendre les comptes en cas de violation des règles.</li>
+            </ol>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <button type="button" class="btn btn-primary" id="agreeTermsBtn" data-bs-dismiss="modal">J'accepte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container">
+      <div class="toast align-items-center text-white bg-success" role="alert" aria-live="assertive" aria-atomic="true" id="successToast">
+        <div class="d-flex">
+          <div class="toast-body">Compte créé avec succès ! Redirection...</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      </div>
+    </div>
+
+    <button id="themeToggle" class="btn btn-outline-secondary">Mode sombre</button>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 SYSTEMSTORES. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Script/Account.js"></script>
+  </body>
+</html>

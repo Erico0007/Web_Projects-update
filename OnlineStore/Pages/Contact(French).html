@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-translate="Contact">Contact | SYSTEMSTORES</title>
+
     <link rel="stylesheet" href="../styles/Contact.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- This is the main stylesheet for the contact page -->
   </head>
-   <div class="language-switcher">
+
+  <div class="language-switcher">
     <a href="Contact.html">English</a>
     <a href="Contact(French).html">Français</a>
-      </div>
+  </div>
+
   <body>
     <script src="../Script/Contactus.js"></script>
     <script src="../Script/lang.js"></script>
+
     <header>
-      <h1 data-translate="Contact">Contact Us</h1>
+      <h1 data-translate="Contact">Contactez-nous</h1>
+
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light"
         aria-label="Main Navigation"
@@ -28,15 +32,18 @@
         <div class="container-fluid">
           <a
             class="navbar-brand"
-            href="../OnlineStore.html"
+            href="../OnlineStore(French).HTML"
             data-translate="SYSTEMSTORES"
             >SYSTEMSTORES</a
           >
+
           <span
             class="navbar-text"
             data-translate="Best Online Shopping Experience"
-            >Best Online Shopping Experience</span
           >
+            La meilleure expérience d'achat en ligne
+          </span>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -48,58 +55,66 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="../OnlineStore.html"
+                  href="../OnlineStore(French).HTML"
                   data-translate="Home"
-                  >Home</a
+                  >Accueil</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="products.html"
+                  href="products(French).html"
                   data-translate="Products"
-                  >Products</a
+                  >Produits</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Cart.html" data-translate="Cart"
-                  >Cart</a
+                <a class="nav-link" href="Cart(French).html" data-translate="Cart"
+                  >Panier</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Contact.html" data-translate="Contact"
+                <a class="nav-link active" href="Contact(French).html" data-translate="Contact"
                   >Contact</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="AboutUs.html"
+                  href="AboutUs(French).html"
                   data-translate="About Us"
-                  >About Us</a
+                  >À propos</a
                 >
               </li>
+
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="OrderHistory.html"
+                  href="OrderHistory(French).html"
                   data-translate="Order History"
-                  >Order History</a
+                  >Historique des commandes</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Account.html" data-translate="Account"
-                  >Account</a
+                <a class="nav-link" href="Account(French).html" data-translate="Account"
+                  >Compte</a
                 >
               </li>
+
               <li class="nav-item">
-                <a class="nav-link" href="Login.html" data-translate="Login"
-                  >Login</a
+                <a class="nav-link" href="Login(French).html" data-translate="Login"
+                  >Connexion</a
                 >
               </li>
             </ul>
@@ -109,24 +124,24 @@
     </header>
 
     <main>
-      <h2 data-translate="Get in Touch">Get in Touch</h2>
+      <h2 data-translate="Get in Touch">Entrer en contact</h2>
+
       <p data-translate="If you have any questions or need assistance">
-        If you have any questions or need assistance, please fill out the form
-        below:
+        Si vous avez des questions ou avez besoin d’assistance, veuillez remplir le formulaire ci-dessous :
       </p>
 
       <form id="contact-form">
-        <label for="name" data-translate="Name">Name:</label>
+        <label for="name" data-translate="Name">Nom :</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="email" data-translate="Email Us">Email:</label>
+        <label for="email" data-translate="Email Us">Courriel :</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="message" data-translate="Message">Message:</label>
+        <label for="message" data-translate="Message">Message :</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
         <button type="submit" data-translate="Send Message">
-          Send Message
+          Envoyer le message
         </button>
       </form>
     </main>
@@ -134,8 +149,19 @@
     <footer>
       <p data-translate="© 2025">
         © 2025 SYSTEMSTORES.
-        <span data-translate="All rights reserved">All rights reserved</span>.
+        <span data-translate="All rights reserved">Tous droits réservés</span>.
       </p>
+
+      <div class="language-switcher">
+        <button
+          type="button"
+          class="lang-btn"
+          data-lang="fr"
+          data-translate="Français"
+        >
+          Français
+        </button>
+      </div>
     </footer>
   </body>
 </html>
