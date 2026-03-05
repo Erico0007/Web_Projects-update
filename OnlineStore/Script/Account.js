@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("submitBtn");
   const agreeTermsBtn = document.getElementById("agreeTermsBtn");
   const successToast = new bootstrap.Toast(
-    document.getElementById("successToast")
+    document.getElementById("successToast"),
   );
 
   // Regular expressions
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     passwordInput.classList.add("is-valid");
     return true;
   }
-// Validate the Password 
+  // Validate the Password
   function validateConfirmPassword() {
     const password = passwordInput.value;
     const confirmPassword = confirmPasswordInput.value;
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       if (!isTermsChecked) {
         const termsModal = new bootstrap.Modal(
-          document.getElementById("termsModal")
+          document.getElementById("termsModal"),
         );
         termsModal.show();
       }
